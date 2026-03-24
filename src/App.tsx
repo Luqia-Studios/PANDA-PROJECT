@@ -91,6 +91,9 @@ function AppShell() {
   const visiblePrimaryNav = primaryNav.filter(
     (item) => item.to !== activePrimarySection,
   );
+  const menuPrimaryNav = location.pathname.startsWith("/journal")
+    ? primaryNav
+    : visiblePrimaryNav;
   const desktopNavItems =
     location.pathname === "/contact"
       ? visiblePrimaryNav
@@ -114,7 +117,7 @@ function AppShell() {
         currentLabel={currentLabel}
         onClose={() => setMenuOpen(false)}
         open={menuOpen}
-        primaryItems={visiblePrimaryNav}
+        primaryItems={menuPrimaryNav}
         secondaryItems={menuNav}
       />
       <FooterNavMobile
