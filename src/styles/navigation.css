@@ -94,7 +94,7 @@
   left: 50%;
   z-index: 30;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 0;
   width: min(calc(100% - 1rem), var(--page-max-width));
@@ -110,6 +110,8 @@
 .footer-nav__mobile-actions {
   display: inline-flex;
   align-self: stretch;
+  margin-left: auto;
+  border-left: 1px solid rgba(48, 47, 47, 0.12);
 }
 
 .footer-nav__current,
@@ -141,7 +143,7 @@
 }
 
 .footer-nav__icon-link {
-  border-right: 1px solid rgba(48, 47, 47, 0.12);
+  border-left: 1px solid rgba(48, 47, 47, 0.12);
 }
 
 .footer-nav__icon-link svg {
@@ -176,15 +178,12 @@
 }
 
 .footer-nav__toggle {
-  gap: 0.28rem;
   cursor: pointer;
 }
 
-.footer-nav__toggle span {
-  display: block;
-  width: 1.2rem;
-  height: 2px;
-  background: rgba(48, 47, 47, 0.9);
+.footer-nav__toggle svg {
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .footer-nav__link.active,
@@ -216,9 +215,18 @@
     font-size: 0.95rem;
   }
 
+  .footer-nav__mobile-actions {
+    border-left-width: 0;
+  }
+
   .footer-nav__icon-link svg {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .footer-nav__toggle svg {
+    width: 1.55rem;
+    height: 1.55rem;
   }
 
   .menu-sheet__panel {

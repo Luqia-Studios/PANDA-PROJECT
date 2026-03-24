@@ -21,6 +21,10 @@ export function FooterNavMobile({
       className={`footer-nav${isHome ? " is-home" : ""}`}
       aria-label="Navigazione principale"
     >
+      <div aria-current="page" className="footer-nav__current">
+        <span className="footer-nav__current-label">{currentLabel}</span>
+      </div>
+
       <div className="footer-nav__mobile-actions">
         <a
           aria-label="Apri Instagram"
@@ -47,14 +51,27 @@ export function FooterNavMobile({
           onClick={onMenuOpen}
           type="button"
         >
-          <span />
-          <span />
-          <span />
+          <svg
+            aria-hidden="true"
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 7H14M4 12H16M4 17H12"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeWidth="2"
+            />
+            <path
+              d="M16.5 8.5L19.5 11.5L22.5 8.5"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+            />
+          </svg>
         </button>
-      </div>
-
-      <div aria-current="page" className="footer-nav__current">
-        <span className="footer-nav__current-label">{currentLabel}</span>
       </div>
 
       <div className="footer-nav__desktop" aria-label="Sezioni principali">

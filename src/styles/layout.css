@@ -60,6 +60,28 @@
   padding-bottom: var(--panel-padding-block);
 }
 
+@media (max-width: 719px) {
+  .page-shell--home {
+    min-height: 100dvh;
+  }
+
+  .page-shell--home .page-stack--home {
+    gap: 1rem;
+    min-height: calc(
+      100dvh - var(--nav-offset-top) - var(--nav-height) - var(--page-offset-from-nav-mobile) - var(--space-shell-bottom)
+    );
+    align-content: start;
+  }
+
+  .page-shell--home .page-section--home-links {
+    margin-top: -0.2rem;
+  }
+
+  .page-shell--home .home-links-grid {
+    gap: 0.7rem;
+  }
+}
+
 @media (min-width: 720px) {
   .page-shell {
     padding:
