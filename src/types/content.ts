@@ -10,21 +10,6 @@ export type LinkCard = {
   to: string;
 };
 
-export type ResourceItem = {
-  category: string;
-  title: string;
-  description: string;
-  bullets: string[];
-};
-
-export type SupportItem = {
-  label: string;
-  title: string;
-  description: string;
-  ctaLabel: string;
-  to: string;
-};
-
 export type TimelineItem = {
   phase: string;
   title: string;
