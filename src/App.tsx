@@ -63,6 +63,31 @@ const pageLabels: Record<string, string> = {
   "/contact": "Contatti",
 };
 
+const revealItemSelector = [
+  ".card-grid > *",
+  ".home-links-grid > *",
+  ".journal-hub-grid > *",
+  ".roadbook-page__metrics > *",
+  ".timeline > *",
+  ".journal-media-wall__item",
+  ".button-row > *",
+  ".journal-photo-page__nav-button",
+].join(", ");
+
+const revealSelector = [
+  ".hero-content",
+  ".section-intro",
+  ".journal-page__hero",
+  ".roadbook-page__intro",
+  ".coming-soon",
+  ".journal-photo-page__nav",
+  ".journal-media-section__header",
+  ".hero-media",
+  ".map-frame",
+  ".live-map-page__frame",
+  revealItemSelector,
+].join(", ");
+
 function getPrimarySection(pathname: string) {
   if (pathname.startsWith("/journal")) {
     return "/journal";
@@ -105,6 +130,86 @@ function AppShell() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const root = document.getElementById("content");
+    if (!root) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    let observer: IntersectionObserver | null = null;
+    let mutationObserver: MutationObserver | null = null;
+
+    const applyRevealMetadata = () => {
+      const nodes = Array.from(
+        root.querySelectorAll<HTMLElement>(revealSelector),
+      );
+
+      nodes.forEach((node) => {
+        const mode = node.matches(".hero-media, .map-frame, .live-map-page__frame")
+          ? "scale"
+          : node.matches(".timeline > *")
+            ? "side"
+            : "up";
+        const delayIndex = node.matches(revealItemSelector)
+          ? Math.min(
+              Array.from(node.parentElement?.children ?? []).indexOf(node),
+              5,
+            )
+          : 0;
+
+        node.dataset.reveal = mode;
+        node.style.setProperty(
+          "--reveal-delay",
+          `${delayIndex === 0 ? 0 : 80 + delayIndex * 60}ms`,
+        );
+
+        if (mediaQuery.matches) {
+          node.classList.add("is-visible");
+          return;
+        }
+
+        if (!node.classList.contains("is-visible")) {
+          observer?.observe(node);
+        }
+      });
+    };
+
+    if (!mediaQuery.matches) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const target = entry.target as HTMLElement;
+            target.classList.add("is-visible");
+            observer?.unobserve(target);
+          });
+        },
+        {
+          threshold: 0.14,
+          rootMargin: "0px 0px -8% 0px",
+        },
+      );
+    }
+
+    frame = window.requestAnimationFrame(applyRevealMetadata);
+    mutationObserver = new MutationObserver(() => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(applyRevealMetadata);
+    });
+    mutationObserver.observe(root, { childList: true, subtree: true });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+      mutationObserver?.disconnect();
+    };
   }, [location.pathname]);
 
   return (
