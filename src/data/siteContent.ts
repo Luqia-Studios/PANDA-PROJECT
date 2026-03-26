@@ -24,15 +24,15 @@ export const primaryNav: NavItem[] = [
   {
     label: "Journal",
     to: "/journal",
-    description: "Journal, foto, diario di bordo e altro.",
+    description: "Journal, foto, diario di bordo e varie.",
   },
 ];
 
 export const menuNav: NavItem[] = [
   {
-    label: "Altro",
+    label: "Varie",
     to: "/journal/altro",
-    description: "Testi, riferimenti, materiali e contenuti laterali.",
+    description: "Attrezzatura, note pratiche, link e materiali vari.",
   },
   {
     label: "Contatti",

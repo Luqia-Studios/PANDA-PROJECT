@@ -59,7 +59,7 @@ const pageLabels: Record<string, string> = {
   "/journal": "Journal",
   "/journal/foto": "Foto",
   "/journal/diario": "Diario di bordo",
-  "/journal/altro": "Altro",
+  "/journal/Varie": "Varie",
   "/contact": "Contatti",
 };
 

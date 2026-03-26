@@ -37,3 +37,18 @@ export type JournalMediaItem = {
   category: JournalMediaCategory;
   src: string;
 };
+
+export type JournalReferenceLink = {
+  label: string;
+  href?: string;
+  note?: string;
+  placeholder?: boolean;
+};
+
+export type JournalReferenceGroup = {
+  bullets?: JournalReferenceLink[];
+  title: string;
+  note?: string;
+  links?: JournalReferenceLink[];
+  status?: "coming-soon";
+};
