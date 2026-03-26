@@ -26,8 +26,8 @@ export function JournalOtherPage() {
   return (
     <div className="page-stack journal-page journal-other-page">
       <section className="page-section journal-page__hero journal-photo-page__hero">
-        <p className="eyebrow">Journal / Varie</p>
-        <h1>Varie</h1>
+        <p className="eyebrow">Journal / Attrezzatura</p>
+        <h1>Attrezzatura</h1>
       </section>
 
       <section className="page-section">

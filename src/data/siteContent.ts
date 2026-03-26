@@ -9,12 +9,12 @@ export const primaryNav: NavItem[] = [
   {
     label: "Home",
     to: "/",
-    description: "Hub del progetto e stato attuale.",
+    description: "Ingresso al progetto.",
   },
   {
-    label: "About",
+    label: "Panda",
     to: "/panda",
-    description: "About, timeline e setup.",
+    description: "Mezzo, timeline e setup.",
   },
   {
     label: "Roadbook",
@@ -24,15 +24,15 @@ export const primaryNav: NavItem[] = [
   {
     label: "Journal",
     to: "/journal",
-    description: "Journal, foto, diario di bordo e varie.",
+    description: "Journal, galleria, diario di bordo e attrezzatura.",
   },
 ];
 
 export const menuNav: NavItem[] = [
   {
-    label: "Varie",
+    label: "Attrezzatura",
     to: "/journal/altro",
-    description: "Attrezzatura, note pratiche, link e materiali vari.",
+    description: "Attrezzatura, note pratiche, link e materiali utili.",
   },
   {
     label: "Contatti",
@@ -43,8 +43,8 @@ export const menuNav: NavItem[] = [
 
 export const hubCards: LinkCard[] = [
   {
-    buttonLabel: "Apri About",
-    title: "About",
+    buttonLabel: "Apri Panda",
+    title: "Panda",
     to: "/panda",
   },
   {
@@ -113,15 +113,15 @@ export const timeline: TimelineItem[] = [
 
 export const pandaSpecs: VehicleSpec[] = [
   {
-    label: "Nome",
-    value: "PandAnna",
+    label: "Veicolo",
+    value: "Panda Anna",
     note: "Anno 1998 - motore 1.108 cc FIRE - 54 CV - trazione integrale 4x4.",
   },
   {
     label: "Stato",
     value: "Restauro completo + setup spedizione",
     note:
-      "Motore e trasmissione revisionati, meccanica ripristinata e dotazione essenziale da overland.",
+      "Meccanica revisionata e ripristinata, carrozzeria strurra restaurata e dotazione essenziale da overland pronta.",
   },
   {
     label: "Filosofia",

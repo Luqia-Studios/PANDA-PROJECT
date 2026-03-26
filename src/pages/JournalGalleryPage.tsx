@@ -265,8 +265,8 @@ export function JournalGalleryPage() {
     <>
       <div className="page-stack journal-page journal-photo-page">
         <section className="page-section journal-page__hero journal-photo-page__hero">
-          <p className="eyebrow">Journal / Foto</p>
-          <h1>Foto</h1>
+          <p className="eyebrow">Journal / Galleria</p>
+          <h1>Galleria</h1>
         </section>
 
         <section className="page-section">

@@ -1,7 +1,14 @@
-import { LiveMapCanvas } from "../components/LiveMapCanvas";
+import { Suspense, lazy } from "react";
 
 const MAP_EMBED =
   "https://www.google.com/maps/d/u/0/embed?mid=17lsE23viS_oQ2LHWF9lOAr3X_02dE3U";
+
+const loadLiveMapCanvas = () =>
+  import("../components/LiveMapCanvas").then((module) => ({
+    default: module.LiveMapCanvas,
+  }));
+
+const LiveMapCanvas = lazy(loadLiveMapCanvas);
 
 const roadbookStats = [
   {
@@ -41,7 +48,17 @@ export function RoutePage() {
             </div>
           </div>
           <div className="roadbook-page__map roadbook-page__map--live">
-            <LiveMapCanvas />
+            <Suspense
+              fallback={
+                <article className="roadbook-live-card roadbook-live-card--loading">
+                  <p className="eyebrow">Live map</p>
+                  <h3>Caricamento live map</h3>
+                  <p>La mappa live viene inizializzata appena entri nella sezione.</p>
+                </article>
+              }
+            >
+              <LiveMapCanvas />
+            </Suspense>
           </div>
         </div>
         <div className="roadbook-page__metrics">

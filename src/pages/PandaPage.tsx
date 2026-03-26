@@ -11,7 +11,6 @@ export function PandaPage() {
         <SectionIntro
           kicker="Scheda rapida"
           title="Quattro coordinate utili"
-          text="Pochi dati, ma abbastanza per leggere il mezzo."
         />
         <div className="card-grid">
           {pandaSpecs.map((item) => (

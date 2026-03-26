@@ -6,8 +6,8 @@ export const journalGallery = journalMediaArchive;
 export const journalSections = [
   {
     label: "01",
-    meta: `${journalGallery.length} media`,
-    title: "Foto + Video",
+    meta: `${journalGallery.length} foto + video`,
+    title: "Galleria",
     to: "/journal/foto",
   },
   {
@@ -19,7 +19,7 @@ export const journalSections = [
   {
     label: "03",
     meta: "attiva",
-    title: "Varie",
+    title: "Attrezzatura",
     to: "/journal/altro",
   },
 ] as const;

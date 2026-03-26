@@ -26,7 +26,7 @@ const journalPhotoArchive: readonly JournalMediaItem[] = [
     src: asset("assets/images/panda-axle.jpg"),
   },
   {
-    alt: "PandAnna vista frontale in garage",
+    alt: "Panda Anna vista frontale in garage",
     category: "preparazione",
     id: "pandanna-garage",
     kind: "photo",

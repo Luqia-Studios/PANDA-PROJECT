@@ -204,38 +204,28 @@
 }
 
 .spec-card {
-  position: relative;
-  overflow: hidden;
-  gap: 0.75rem;
+  gap: 0.65rem;
   min-height: 100%;
-  padding: var(--panel-padding-block) var(--panel-padding-inline);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(219, 165, 106, 0.08), rgba(255, 255, 255, 0.015) 26%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.spec-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-warm), rgba(219, 165, 106, 0.08));
-  pointer-events: none;
+  padding: clamp(1rem, 2vw, 1.2rem);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+  box-shadow: none;
 }
 
 .spec-card .spec-label {
-  color: var(--accent-warm);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
 }
 
 .spec-card h3 {
-  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-  line-height: 1.04;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  line-height: 1.08;
 }
 
 .spec-card p:last-child {
-  max-width: 36rem;
+  max-width: 34rem;
+  color: var(--text-muted);
 }
 
 .action-card {
@@ -356,6 +346,31 @@
   padding: 0.6rem 0.75rem;
   background: rgba(0, 0, 0, 0.58);
   color: var(--text);
+}
+
+.roadbook-live-card {
+  display: grid;
+  gap: var(--space-sm);
+  min-height: clamp(18rem, 52vh, 24rem);
+  align-content: center;
+  padding: var(--panel-padding-block) var(--panel-padding-inline);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(219, 165, 106, 0.08), rgba(255, 255, 255, 0.015) 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.012));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 30px rgba(0, 0, 0, 0.14);
+}
+
+.roadbook-live-card h3,
+.roadbook-live-card p {
+  max-width: 28rem;
+}
+
+.roadbook-live-card--loading {
+  place-items: center;
+  text-align: center;
 }
 
 .panda-map-wrap {

@@ -46,17 +46,6 @@ const JournalLogPage = lazy(loadJournalLogPage);
 const JournalOtherPage = lazy(loadJournalOtherPage);
 const ContactPage = lazy(loadContactPage);
 
-const routePreloaders = [
-  loadHomePage,
-  loadPandaPage,
-  loadRoutePage,
-  loadJournalPage,
-  loadJournalGalleryPage,
-  loadJournalLogPage,
-  loadJournalOtherPage,
-  loadContactPage,
-] as const;
-
 const INSTAGRAM_URL = "https://www.instagram.com/lucaorlandi____/";
 const CONTACT_NAV_ITEM = {
   label: "Contatti",
@@ -66,12 +55,12 @@ const CONTACT_NAV_ITEM = {
 
 const pageLabels: Record<string, string> = {
   "/": "Home",
-  "/panda": "About",
+  "/panda": "Panda",
   "/route": "Roadbook",
   "/journal": "Journal",
-  "/journal/foto": "Foto",
+  "/journal/foto": "Galleria",
   "/journal/diario": "Diario di bordo",
-  "/journal/altro": "Varie",
+  "/journal/altro": "Attrezzatura",
   "/contact": "Contatti",
 };
 
@@ -207,30 +196,6 @@ function AppShell() {
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    const connection = (
-      navigator as Navigator & {
-        connection?: {
-          saveData?: boolean;
-        };
-      }
-    ).connection;
-
-    if (connection?.saveData) {
-      return;
-    }
-
-    const timer = window.setTimeout(() => {
-      routePreloaders.forEach((loadRoute) => {
-        void loadRoute().catch(() => undefined);
-      });
-    }, 650);
-
-    return () => {
-      window.clearTimeout(timer);
-    };
-  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
