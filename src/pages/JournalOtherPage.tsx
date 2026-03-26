@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {
   journalOtherEquipmentGroups,
   journalOtherMechanical,
-  journalOtherPlaceholder,
 } from "../data/journalContent";
 
 const journalOtherNav = [
@@ -13,10 +12,6 @@ const journalOtherNav = [
   {
     id: "auto-meccanica",
     label: "Auto e meccanica",
-  },
-  {
-    id: "documenti-logistica",
-    label: "Documenti e logistica",
   },
 ] as const;
 
@@ -218,24 +213,6 @@ export function JournalOtherPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="page-section journal-media-section" id="documenti-logistica">
-        <div className="journal-media-section__header">
-          <span className="journal-media-section__badge">
-            {journalOtherPlaceholder.eyebrow}
-          </span>
-        </div>
-
-        <article className="journal-other-group journal-other-group--placeholder">
-          <h2>{journalOtherPlaceholder.title}</h2>
-          <p>{journalOtherPlaceholder.note}</p>
-          <ul>
-            {journalOtherPlaceholder.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-        </article>
       </section>
 
       <section className="cta-section">

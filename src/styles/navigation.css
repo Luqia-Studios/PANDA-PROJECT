@@ -88,6 +88,18 @@
 }
 
 /* Top nav */
+.app-shell::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--nav-offset-top) + 0.15rem);
+  background: var(--bg);
+  z-index: 29;
+  pointer-events: none;
+}
+
 .footer-nav {
   position: fixed;
   top: var(--nav-offset-top);

@@ -148,16 +148,3 @@ export const journalOtherMechanical = [
     ],
   },
 ] as const;
-
-export const journalOtherPlaceholder = {
-  bullets: [
-    "documenti, copie e backup digitali",
-    "assicurazioni, numeri utili e riferimenti rapidi",
-    "frontiere, note paese e passaggi critici",
-    "check amministrativo prima della partenza",
-  ],
-  eyebrow: "Placeholder temporaneo",
-  note:
-    "Per ora questa sezione resta aperta come spazio per documenti e logistica.",
-  title: "Documenti e logistica",
-} as const;
