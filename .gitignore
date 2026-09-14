@@ -1,11 +1,9 @@
-node_modules
-dist
-.vite
+node_modules/
+.npm-cache/
+dist/
+.vite/
 .env
 .env.*
 !.env.example
-coverage
 .DS_Store
 Thumbs.db
-*.thumb.webp
-*.lightbox.webp
