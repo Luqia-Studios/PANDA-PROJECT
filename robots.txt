@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://panda-project.it/sitemap.xml

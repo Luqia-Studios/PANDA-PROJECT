@@ -1,0 +1,18 @@
+{
+  "name": "Panda Project",
+  "short_name": "Panda Project",
+  "description": "Low-budget overland in inappropriate vehicles.",
+  "lang": "it",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffd400",
+  "theme_color": "#ffd400",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
