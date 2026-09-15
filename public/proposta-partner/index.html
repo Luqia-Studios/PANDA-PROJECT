@@ -99,7 +99,7 @@
       pandaModel?.addEventListener("error", () => pandaModelShell?.classList.add("has-error"));
       const setModelFraming = () => {
         if (!pandaModel) return;
-        const distance = window.matchMedia("(max-width: 680px)").matches ? "112%" : "88%";
+        const distance = window.matchMedia("(max-width: 680px)").matches ? "104%" : "88%";
         pandaModel.setAttribute("camera-orbit", `36deg 72deg ${distance}`);
         pandaModel.setAttribute("min-camera-orbit", `auto auto ${distance}`);
         pandaModel.setAttribute("max-camera-orbit", `auto auto ${distance}`);

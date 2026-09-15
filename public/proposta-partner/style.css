@@ -130,16 +130,18 @@ footer a { color:var(--ink); }
   .vehicle-swiper { display:grid; grid-template-rows:minmax(0,1fr) auto; height:100%; min-height:0; margin-top:0; transform:none; }
   .vehicle-swiper__track { display:grid; grid-auto-flow:column; grid-auto-columns:100%; height:100%; min-height:0; }
   .vehicle-slide { width:100%; height:auto; min-height:0; }
-  .vehicle-slide__name { justify-self:center; margin:0 0 8px; transform:none; }
-  .vehicle-slide__project { justify-content:center; justify-self:center; min-width:min(198px,80%); padding:15px 21px; transform:none; }
+  .vehicle-slide__name { justify-self:center; margin:0 0 5px; transform:none; }
+  .vehicle-slide__project { justify-content:center; justify-self:center; min-width:min(178px,76%); min-height:46px; padding:10px 16px; font-size:11px; transform:none; }
+  .vehicle-slide__project span { font-size:17px; }
   .vehicle-slide__project:hover { transform:translateY(-1px) scale(1.015); }
   .vehicle-slide__project:active { transform:scale(.985); }
   .vehicle-swiper__controls { margin-top:8px; transform:none; }
-  .hero-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:2px; width:100%; transform:none; }
+  .hero-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-self:end; gap:8px; margin-top:2px; width:100%; transform:none; }
   .hero-actions .gofundme-badge,
   .hero-actions .page-button { min-width:0; justify-content:center; white-space:nowrap; }
-  .hero-actions .gofundme-badge { grid-column:1 / -1; gap:10px; min-height:44px; padding:10px 12px; }
-  .hero-actions .gofundme-badge small { display:inline; padding-left:10px; }
+  .hero-actions .gofundme-badge { grid-column:1 / -1; gap:8px; min-height:38px; padding:7px 10px; }
+  .hero-actions .gofundme-badge span { font-size:17px; }
+  .hero-actions .gofundme-badge small { display:inline; padding-left:8px; font-size:9px; }
   .hero-actions .page-button { gap:6px; min-height:48px; padding:12px 8px; }
   .hand-note { right:12%; top:auto; bottom:22%; font-size:clamp(24px,8vw,34px); }
   .hero-spec { right:7%; top:auto; bottom:22%; font-size:8px; }
@@ -176,9 +178,9 @@ footer a { color:var(--ink); }
   .quick-nav { top:10px; }
   .hero { gap:6px; padding-top:62px; padding-bottom:12px; }
   .vehicle-slide__name { margin-bottom:5px; font-size:16px; }
-  .vehicle-slide__project { min-height:48px; padding:11px 18px; font-size:12px; }
+  .vehicle-slide__project { min-height:42px; padding:8px 14px; font-size:10px; }
   .vehicle-swiper__controls { margin-top:4px; }
-  .hero-actions .gofundme-badge { min-height:40px; padding:8px 10px; }
+  .hero-actions .gofundme-badge { min-height:36px; padding:6px 9px; }
 }
 
 @media (min-width:681px) and (max-height:720px) {
