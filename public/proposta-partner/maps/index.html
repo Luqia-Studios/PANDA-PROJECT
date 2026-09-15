@@ -18,24 +18,25 @@
   <body>
     <main class="maps-page">
       <header class="quick-nav">
-        <a class="map-back" href="../">← Home</a>
+        <a class="map-back" href="../" data-i18n="backHome">← Home</a>
         <a class="social-button social-button--instagram" href="https://www.instagram.com/lucaorlandi____/" target="_blank" rel="noreferrer" aria-label="Apri Instagram di Panda Project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.25 2h9.5A5.25 5.25 0 0 1 22 7.25v9.5A5.25 5.25 0 0 1 16.75 22h-9.5A5.25 5.25 0 0 1 2 16.75v-9.5A5.25 5.25 0 0 1 7.25 2Zm0 2A3.25 3.25 0 0 0 4 7.25v9.5A3.25 3.25 0 0 0 7.25 20h9.5A3.25 3.25 0 0 0 20 16.75v-9.5A3.25 3.25 0 0 0 16.75 4h-9.5ZM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85Zm0 2A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85ZM17.36 5.3a1.23 1.23 0 1 1-1.23 1.23 1.23 1.23 0 0 1 1.23-1.23Z" /></svg></a>
       </header>
       <section class="maps-grid" aria-label="Mappe Panda Project">
         <article class="map-block">
-          <p>My Maps</p>
+          <p data-i18n="myMaps">Le mie mappe</p>
           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=17lsE23viS_oQ2LHWF9lOAr3X_02dE3U" title="Panda Project My Maps" loading="lazy"></iframe>
         </article>
         <article class="map-block map-block--live">
-          <p>Posizione live</p>
+          <p data-i18n="liveLocation">Posizione live</p>
           <div class="live-map-shell" id="live-map-shell">
             <div class="live-map-canvas" id="live-map" aria-label="Mappa posizione Panda"></div>
-            <button class="live-map-fit" id="live-map-fit" type="button">Ritrova la Panda</button>
+            <button class="live-map-fit" id="live-map-fit" type="button" data-i18n="findPanda">Ritrova la Panda</button>
             <div class="live-status-bar" role="status" id="live-status">Caricamento…</div>
           </div>
         </article>
       </section>
     </main>
+    <script src="../i18n.js"></script>
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
     <script>
       const dataUrl = "https://script.google.com/macros/s/AKfycbxQfiZ1KIQHFH5tn7gPfkMI6-NMKUtj_uVgygG2eTaVDCW9dqIpm3bwV5TARlj6QBcz/exec?action=getLast&deviceId=cavallo";

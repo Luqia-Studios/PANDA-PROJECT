@@ -21,17 +21,17 @@
           <a class="social-button social-button--instagram" href="https://www.instagram.com/lucaorlandi____/" target="_blank" rel="noreferrer" aria-label="Apri Instagram di Panda Project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.25 2h9.5A5.25 5.25 0 0 1 22 7.25v9.5A5.25 5.25 0 0 1 16.75 22h-9.5A5.25 5.25 0 0 1 2 16.75v-9.5A5.25 5.25 0 0 1 7.25 2Zm0 2A3.25 3.25 0 0 0 4 7.25v9.5A3.25 3.25 0 0 0 7.25 20h9.5A3.25 3.25 0 0 0 20 16.75v-9.5A3.25 3.25 0 0 0 16.75 4h-9.5ZM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85Zm0 2A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85ZM17.36 5.3a1.23 1.23 0 1 1-1.23 1.23 1.23 1.23 0 0 1 1.23-1.23Z" /></svg></a>
           <a class="social-button social-button--youtube" href="https://www.youtube.com/@PandaProject-Luca" target="_blank" rel="noreferrer" aria-label="Apri YouTube di Panda Project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.19a2.99 2.99 0 0 0-2.1-2.12C17.63 4.57 12 4.57 12 4.57s-5.63 0-7.48.5a3 3 0 0 0-2.1 2.12A31.1 31.1 0 0 0 1.92 12a31.1 31.1 0 0 0 .5 4.81 3 3 0 0 0 2.1 2.12c1.85.5 7.48.5 7.48.5s5.63 0 7.48-.5a2.99 2.99 0 0 0 2.1-2.12 31.1 31.1 0 0 0 .5-4.81 31.1 31.1 0 0 0-.5-4.81ZM10.2 14.95V9.05L15.4 12l-5.2 2.95Z" /></svg></a>
         </div>
-        <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">Menu <span aria-hidden="true">+</span></button>
+        <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu" data-i18n="menu">Menu <span aria-hidden="true">+</span></button>
       </header>
       <aside class="site-menu" id="site-menu" aria-hidden="true">
         <div class="site-menu__top"><span>Panda Project</span><button id="menu-close" type="button" aria-label="Chiudi menu">×</button></div>
         <nav aria-label="Sezioni del progetto">
-          <span class="site-menu__label">Progetti</span>
+          <span class="site-menu__label" data-i18n="projects">Progetti</span>
           <a href="./projects/pandanna/index.html">Pandanna</a>
-          <span class="site-menu__label">Esplora</span>
-          <a href="./maps/index.html">Maps</a>
-          <a href="./journal/foto.html">Galleria</a>
-          <a class="site-menu__support" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer">Sostieni il progetto <span aria-hidden="true">↗</span></a>
+          <span class="site-menu__label" data-i18n="explore">Esplora</span>
+          <a href="./maps/index.html" data-i18n="maps">Maps</a>
+          <a href="./journal/foto.html" data-i18n="gallery">Galleria</a>
+          <a class="site-menu__support" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer" data-i18n="support">Sostieni il progetto <span aria-hidden="true">↗</span></a>
         </nav>
       </aside>
       <section class="hero" id="inizio">
@@ -42,32 +42,32 @@
           <span class="route-graphic__circle route-graphic__circle--two"></span>
         </div>
         <div class="hero-copy">
-          <h1>Low-budget<br />overland in<br /><em>inappropriate<br />vehicles.</em></h1>
+          <h1 data-i18n="projectTitle" data-i18n-html>Low-budget<br />overland in<br /><em>inappropriate<br />vehicles.</em></h1>
         </div>
         <section class="vehicle-swiper" aria-label="Selezione veicoli">
           <div class="vehicle-swiper__track" id="vehicle-swiper-track">
             <article class="vehicle-slide" aria-label="Veicolo 1 di 4">
-              <h2 class="vehicle-slide__name">Panda Anna</h2>
+              <h2 class="vehicle-slide__name" data-i18n="vehicle">Panda Anna</h2>
               <div class="hero-model" id="panda-model-shell">
                 <model-viewer id="panda-model" src="../assets/models/panda-3d.glb" alt="Modello 3D di Panda Anna" crossorigin="anonymous" camera-controls auto-rotate environment-image="neutral" exposure="1" shadow-intensity="0.3" bounds="tight" camera-target="auto auto auto" camera-orbit="36deg 72deg 88%" min-camera-orbit="auto auto 88%" max-camera-orbit="auto auto 88%" interaction-prompt="auto" interaction-prompt-threshold="500" disable-zoom disable-pan></model-viewer>
                 <p class="model-fallback" role="status">Il 3D non si è caricato. Ricarica la pagina oppure apri la preview nel browser.</p>
               </div>
-              <a class="vehicle-slide__project" href="./projects/pandanna/index.html">Show the Project <span aria-hidden="true">→</span></a>
+              <a class="vehicle-slide__project" href="./projects/pandanna/index.html" data-i18n="showProject">Show the Project <span aria-hidden="true">→</span></a>
             </article>
             <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Build in progress, veicolo 2 di 4">
               <div class="vehicle-placeholder__visual vehicle-placeholder__visual--build" aria-hidden="true"><canvas class="vehicle-placeholder__animation" id="build-gears-animation"></canvas></div>
-              <h2 class="vehicle-slide__name">Build in progress</h2>
-              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled>Show the Project <span aria-hidden="true">→</span></button>
+              <h2 class="vehicle-slide__name" data-i18n="build">Build in progress</h2>
+              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled data-i18n="showProject">Show the Project <span aria-hidden="true">→</span></button>
             </article>
             <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Coming soon, veicolo 3 di 4">
               <div class="vehicle-placeholder__visual" aria-hidden="true"><span class="vehicle-placeholder__lock"></span></div>
-              <h2 class="vehicle-slide__name">Coming soon</h2>
-              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled>Show the Project <span aria-hidden="true">→</span></button>
+              <h2 class="vehicle-slide__name" data-i18n="soon">Coming soon</h2>
+              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled data-i18n="showProject">Show the Project <span aria-hidden="true">→</span></button>
             </article>
             <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Coming soon, veicolo 4 di 4">
               <div class="vehicle-placeholder__visual" aria-hidden="true"><span class="vehicle-placeholder__lock"></span></div>
-              <h2 class="vehicle-slide__name">Coming soon</h2>
-              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled>Show the Project <span aria-hidden="true">→</span></button>
+              <h2 class="vehicle-slide__name" data-i18n="soon">Coming soon</h2>
+              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled data-i18n="showProject">Show the Project <span aria-hidden="true">→</span></button>
             </article>
           </div>
           <div class="vehicle-swiper__controls" aria-label="Controlli selezione veicoli">
@@ -82,10 +82,11 @@
           </div>
         </section>
         <div class="hero-actions">
-          <a class="gofundme-badge" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer"><span>WhyDonate</span><small>Sostieni il progetto ↗</small></a>
+          <a class="gofundme-badge" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer"><span>WhyDonate</span><small data-i18n="support">Sostieni il progetto ↗</small></a>
         </div>
       </section>
     </main>
+    <script src="./i18n.js"></script>
     <script>
       const pandaModel = document.querySelector("#panda-model");
       const pandaModelShell = document.querySelector("#panda-model-shell");
