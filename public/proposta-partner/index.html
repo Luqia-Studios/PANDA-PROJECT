@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css?v=gears-animation-1" />
+    <link rel="stylesheet" href="./style.css?v=home-fixed-3" />
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
   </head>
   <body class="home-page">
@@ -99,7 +99,7 @@
       pandaModel?.addEventListener("error", () => pandaModelShell?.classList.add("has-error"));
       const setModelFraming = () => {
         if (!pandaModel) return;
-        const distance = window.matchMedia("(max-width: 680px)").matches ? "104%" : "88%";
+        const distance = window.matchMedia("(max-width: 680px)").matches ? "108%" : "88%";
         pandaModel.setAttribute("camera-orbit", `36deg 72deg ${distance}`);
         pandaModel.setAttribute("min-camera-orbit", `auto auto ${distance}`);
         pandaModel.setAttribute("max-camera-orbit", `auto auto ${distance}`);
