@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css?v=mobile-actions-6" />
+    <link rel="stylesheet" href="./style.css?v=gears-animation-1" />
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
   </head>
   <body>
@@ -26,11 +26,12 @@
       <aside class="site-menu" id="site-menu" aria-hidden="true">
         <div class="site-menu__top"><span>Panda Project</span><button id="menu-close" type="button" aria-label="Chiudi menu">×</button></div>
         <nav aria-label="Sezioni del progetto">
-          <a href="./index.html">Home</a>
+          <span class="site-menu__label">Progetti</span>
+          <a href="./projects/pandanna/index.html">Pandanna</a>
+          <span class="site-menu__label">Esplora</span>
           <a href="./maps/index.html">Maps</a>
-          <a href="./journal/index.html">Journal</a>
           <a href="./journal/foto.html">Galleria</a>
-          <a href="./journal/diario.html">Diario</a>
+          <a class="site-menu__support" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer">Sostieni il progetto <span aria-hidden="true">↗</span></a>
         </nav>
       </aside>
       <section class="hero" id="inizio">
@@ -43,24 +44,113 @@
         <div class="hero-copy">
           <h1>Low-budget<br />overland in<br /><em>inappropriate<br />vehicles.</em></h1>
         </div>
-        <div class="hero-model" id="panda-model-shell">
-          <model-viewer id="panda-model" src="../assets/models/panda-3d.glb" alt="Modello 3D di Panda Anna" crossorigin="anonymous" camera-controls auto-rotate environment-image="neutral" exposure="1" shadow-intensity="0.3" bounds="tight" camera-target="auto auto auto" camera-orbit="36deg 72deg 88%" min-camera-orbit="auto auto 88%" max-camera-orbit="auto auto 88%" interaction-prompt="auto" interaction-prompt-threshold="500" disable-zoom disable-pan></model-viewer>
-          <p class="model-fallback" role="status">Il 3D non si è caricato. Ricarica la pagina oppure apri la preview nel browser.</p>
-        </div>
+        <section class="vehicle-swiper" aria-label="Selezione veicoli">
+          <div class="vehicle-swiper__track" id="vehicle-swiper-track">
+            <article class="vehicle-slide" aria-label="Veicolo 1 di 4">
+              <h2 class="vehicle-slide__name">Panda Anna</h2>
+              <div class="hero-model" id="panda-model-shell">
+                <model-viewer id="panda-model" src="../assets/models/panda-3d.glb" alt="Modello 3D di Panda Anna" crossorigin="anonymous" camera-controls auto-rotate environment-image="neutral" exposure="1" shadow-intensity="0.3" bounds="tight" camera-target="auto auto auto" camera-orbit="36deg 72deg 88%" min-camera-orbit="auto auto 88%" max-camera-orbit="auto auto 88%" interaction-prompt="auto" interaction-prompt-threshold="500" disable-zoom disable-pan></model-viewer>
+                <p class="model-fallback" role="status">Il 3D non si è caricato. Ricarica la pagina oppure apri la preview nel browser.</p>
+              </div>
+              <a class="vehicle-slide__project" href="./projects/pandanna/index.html">Show the Project <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Build in progress, veicolo 2 di 4">
+              <div class="vehicle-placeholder__visual vehicle-placeholder__visual--build" aria-hidden="true"><canvas class="vehicle-placeholder__animation" id="build-gears-animation"></canvas></div>
+              <h2 class="vehicle-slide__name">Build in progress</h2>
+              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled>Show the Project <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Coming soon, veicolo 3 di 4">
+              <div class="vehicle-placeholder__visual" aria-hidden="true"><span class="vehicle-placeholder__lock"></span></div>
+              <h2 class="vehicle-slide__name">Coming soon</h2>
+              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled>Show the Project <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Coming soon, veicolo 4 di 4">
+              <div class="vehicle-placeholder__visual" aria-hidden="true"><span class="vehicle-placeholder__lock"></span></div>
+              <h2 class="vehicle-slide__name">Coming soon</h2>
+              <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled>Show the Project <span aria-hidden="true">→</span></button>
+            </article>
+          </div>
+          <div class="vehicle-swiper__controls" aria-label="Controlli selezione veicoli">
+            <button class="vehicle-swiper__arrow" id="vehicle-previous" type="button" aria-label="Veicolo precedente">&lt;</button>
+            <div class="vehicle-swiper__dots" role="tablist" aria-label="Scegli un veicolo">
+              <button class="vehicle-swiper__dot is-active" type="button" role="tab" aria-selected="true" aria-controls="panda-model-shell" aria-label="Mostra Panda Anna"></button>
+              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" aria-label="Mostra Build in progress"></button>
+              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" aria-label="Mostra Coming soon"></button>
+              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" aria-label="Mostra Coming soon"></button>
+            </div>
+            <button class="vehicle-swiper__arrow" id="vehicle-next" type="button" aria-label="Veicolo successivo">&gt;</button>
+          </div>
+        </section>
         <div class="hero-actions">
-          <a class="gofundme-badge" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer"><span>WhyDonate</span><small>Sostieni il viaggio ↗</small></a>
-          <a class="page-button" href="./journal/index.html">Journal <span aria-hidden="true">↗</span></a>
-          <a class="page-button" href="./maps/index.html">Maps <span aria-hidden="true">↗</span></a>
+          <a class="gofundme-badge" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer"><span>WhyDonate</span><small>Sostieni il progetto ↗</small></a>
         </div>
       </section>
     </main>
     <script>
       const pandaModel = document.querySelector("#panda-model");
       const pandaModelShell = document.querySelector("#panda-model-shell");
+      const vehicleTrack = document.querySelector("#vehicle-swiper-track");
+      const vehicleDots = [...document.querySelectorAll(".vehicle-swiper__dot")];
+      const previousVehicle = document.querySelector("#vehicle-previous");
+      const nextVehicle = document.querySelector("#vehicle-next");
       const menuButton = document.querySelector("#menu-button");
       const menuClose = document.querySelector("#menu-close");
       const siteMenu = document.querySelector("#site-menu");
       pandaModel?.addEventListener("error", () => pandaModelShell?.classList.add("has-error"));
+      const setModelFraming = () => {
+        if (!pandaModel) return;
+        const distance = window.matchMedia("(max-width: 680px)").matches ? "112%" : "88%";
+        pandaModel.setAttribute("camera-orbit", `36deg 72deg ${distance}`);
+        pandaModel.setAttribute("min-camera-orbit", `auto auto ${distance}`);
+        pandaModel.setAttribute("max-camera-orbit", `auto auto ${distance}`);
+      };
+      pandaModel?.addEventListener("load", setModelFraming);
+      window.matchMedia("(max-width: 680px)").addEventListener("change", setModelFraming);
+      setModelFraming();
+      const setActiveVehicle = (index) => {
+        const slide = vehicleTrack?.children[index];
+        if (!slide) return;
+        vehicleTrack.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+        vehicleDots.forEach((dot, dotIndex) => {
+          const active = dotIndex === index;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-selected", String(active));
+        });
+      };
+      vehicleDots.forEach((dot, index) => dot.addEventListener("click", () => setActiveVehicle(index)));
+      const moveVehicle = (direction) => {
+        const activeIndex = vehicleDots.findIndex((dot) => dot.getAttribute("aria-selected") === "true");
+        setActiveVehicle((activeIndex + direction + vehicleDots.length) % vehicleDots.length);
+      };
+      previousVehicle?.addEventListener("click", () => moveVehicle(-1));
+      nextVehicle?.addEventListener("click", () => moveVehicle(1));
+      vehicleTrack?.addEventListener("scroll", () => {
+        const index = Math.round(vehicleTrack.scrollLeft / vehicleTrack.clientWidth);
+        vehicleDots.forEach((dot, dotIndex) => {
+          const active = dotIndex === index;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-selected", String(active));
+        });
+      }, { passive: true });
+      let dragStartX = null;
+      let dragStartScroll = 0;
+      vehicleTrack?.addEventListener("pointerdown", (event) => {
+        if (event.target.closest("model-viewer, a, button")) return;
+        dragStartX = event.clientX;
+        dragStartScroll = vehicleTrack.scrollLeft;
+        vehicleTrack.setPointerCapture(event.pointerId);
+      });
+      vehicleTrack?.addEventListener("pointermove", (event) => {
+        if (dragStartX === null) return;
+        const distance = event.clientX - dragStartX;
+        if (Math.abs(distance) > 4) {
+          event.preventDefault();
+          vehicleTrack.scrollLeft = dragStartScroll - distance;
+        }
+      });
+      const stopVehicleDrag = () => { dragStartX = null; };
+      vehicleTrack?.addEventListener("pointerup", stopVehicleDrag);
+      vehicleTrack?.addEventListener("pointercancel", stopVehicleDrag);
       const setMenu = (open) => {
         siteMenu?.classList.toggle("is-open", open);
         siteMenu?.setAttribute("aria-hidden", String(!open));
@@ -68,6 +158,19 @@
       };
       menuButton?.addEventListener("click", () => setMenu(true));
       menuClose?.addEventListener("click", () => setMenu(false));
+    </script>
+    <script type="module">
+      import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+      const buildGearsCanvas = document.querySelector("#build-gears-animation");
+      if (buildGearsCanvas) {
+        new DotLottie({
+          canvas: buildGearsCanvas,
+          src: "../assets/animations/gears-animation.lottie",
+          autoplay: true,
+          loop: true,
+          renderConfig: { autoResize: true }
+        });
+      }
     </script>
   </body>
 </html>
