@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css?v=home-spacing-4" />
+    <link rel="stylesheet" href="./style.css" />
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
   </head>
   <body class="home-page">
@@ -27,7 +27,7 @@
         <div class="site-menu__top"><span>Panda Project</span><button id="menu-close" type="button" aria-label="Chiudi menu">×</button></div>
         <nav aria-label="Sezioni del progetto">
           <span class="site-menu__label" data-i18n="projects">Progetti</span>
-          <a href="./projects/pandanna/index.html?v=project-title-1">Pandanna</a>
+          <a href="./projects/pandanna/index.html">Pandanna</a>
           <span class="site-menu__label" data-i18n="explore">Esplora</span>
           <a href="./maps/index.html" data-i18n="maps">Maps</a>
           <a href="./journal/foto.html" data-i18n="gallery">Galleria</a>
@@ -52,7 +52,7 @@
                 <model-viewer id="panda-model" src="../assets/models/panda-3d.glb" alt="Modello 3D di Panda Anna" crossorigin="anonymous" camera-controls auto-rotate environment-image="neutral" exposure="1" shadow-intensity="0.3" bounds="tight" camera-target="auto auto auto" camera-orbit="36deg 72deg 88%" min-camera-orbit="auto auto 88%" max-camera-orbit="auto auto 88%" interaction-prompt="auto" interaction-prompt-threshold="500" disable-zoom disable-pan></model-viewer>
                 <p class="model-fallback" role="status">Il 3D non si è caricato. Ricarica la pagina oppure apri la preview nel browser.</p>
               </div>
-              <a class="vehicle-slide__project" href="./projects/pandanna/index.html?v=project-title-1" data-i18n="showProject">Show the Project <span aria-hidden="true">→</span></a>
+              <a class="vehicle-slide__project" href="./projects/pandanna/index.html" data-i18n="showProject">Show the Project <span aria-hidden="true">→</span></a>
             </article>
             <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Build in progress, veicolo 2 di 4">
               <div class="vehicle-placeholder__visual vehicle-placeholder__visual--build" aria-hidden="true"><canvas class="vehicle-placeholder__animation" id="build-gears-animation"></canvas></div>
