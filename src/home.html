@@ -154,7 +154,7 @@
       import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
 
       const buildGearsCanvas = document.querySelector("#build-gears-animation");
-      if (buildGearsCanvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (buildGearsCanvas) {
         new DotLottie({
           canvas: buildGearsCanvas,
           src: "/public/assets/animations/gears-animation.lottie",
