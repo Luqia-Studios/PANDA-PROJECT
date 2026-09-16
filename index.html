@@ -113,7 +113,9 @@
               loop: true,
               renderConfig: { autoResize: true }
             });
-            if (buildSlideActive) buildGearsAnimation.play();
+            buildGearsAnimation.addEventListener("load", () => {
+              if (buildSlideActive) buildGearsAnimation.play();
+            });
           });
       };
     </script>
