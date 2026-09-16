@@ -17,8 +17,20 @@
     menuButton.dataset.menuReady = "true";
     menuButton.addEventListener("click", () => setMenu(true));
     menuClose?.addEventListener("click", () => setMenu(false));
+    siteMenu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        siteMenu.classList.remove("is-open");
+        siteMenu.setAttribute("aria-hidden", "true");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setMenu(false);
+    });
+    window.addEventListener("pageshow", () => {
+      siteMenu.classList.remove("is-open");
+      siteMenu.setAttribute("aria-hidden", "true");
+      menuButton.setAttribute("aria-expanded", "false");
     });
   };
 
