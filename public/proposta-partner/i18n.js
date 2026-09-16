@@ -70,14 +70,14 @@
     const root = folders.map(() => "../").join("") || "./";
 
     let socialLinks = header.querySelector(".social-links");
-    header.querySelectorAll(":scope > .social-button").forEach((button) => button.remove());
     if (!socialLinks) {
+      header.querySelectorAll(":scope > .social-button").forEach((button) => button.remove());
       socialLinks = document.createElement("div");
       socialLinks.className = "social-links";
       socialLinks.setAttribute("aria-label", "Canali Panda Project");
+      socialLinks.innerHTML = socialLinksMarkup;
+      header.append(socialLinks);
     }
-    socialLinks.innerHTML = socialLinksMarkup;
-    header.append(socialLinks);
 
     if (!isHome && !header.querySelector(".map-back")) {
       const back = document.createElement("a");
