@@ -108,13 +108,11 @@
             buildGearsAnimation = new DotLottie({
               canvas: buildGearsCanvas,
               src: "../assets/animations/gears-animation.lottie",
-              autoplay: false,
+              autoplay: true,
               loop: true,
               renderConfig: { autoResize: true }
             });
-            buildGearsAnimation.addEventListener("load", () => {
-              if (buildSlideActive) buildGearsAnimation.play();
-            });
+            if (!buildSlideActive) buildGearsAnimation.pause();
           });
       };
     </script>
