@@ -88,35 +88,6 @@
     <script defer src="./i18n.js?v=20260916-6"></script>
     <script defer src="./shared/site.js?v=20260916-2"></script>
     <script>
-      const buildGearsCanvas = document.querySelector("#build-gears-animation");
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      let buildGearsAnimation;
-      let buildGearsLoader;
-      let buildSlideActive = false;
-
-      const setBuildAnimationActive = (active) => {
-        buildSlideActive = active;
-        if (reducedMotion || !buildGearsCanvas) return;
-        if (buildGearsAnimation) {
-          if (active) buildGearsAnimation.play();
-          else buildGearsAnimation.pause();
-          return;
-        }
-        if (!active) return;
-        buildGearsLoader ??= import("https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm")
-          .then(({ DotLottie }) => {
-            buildGearsAnimation = new DotLottie({
-              canvas: buildGearsCanvas,
-              src: "../assets/animations/gears-animation.lottie",
-              autoplay: true,
-              loop: true,
-              renderConfig: { autoResize: true }
-            });
-            if (!buildSlideActive) buildGearsAnimation.pause();
-          });
-      };
-    </script>
-    <script>
       const pandaModel = document.querySelector("#panda-model");
       const pandaModelShell = document.querySelector("#panda-model-shell");
       const vehicleTrack = document.querySelector("#vehicle-swiper-track");
@@ -137,7 +108,6 @@
       const setActiveVehicle = (index) => {
         const slide = vehicleTrack?.children[index];
         if (!slide) return;
-        setBuildAnimationActive(index === 1);
         vehicleTrack.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
         vehicleDots.forEach((dot, dotIndex) => {
           const active = dotIndex === index;
@@ -154,7 +124,6 @@
       nextVehicle?.addEventListener("click", () => moveVehicle(1));
       vehicleTrack?.addEventListener("scroll", () => {
         const index = Math.round(vehicleTrack.scrollLeft / vehicleTrack.clientWidth);
-        setBuildAnimationActive(index === 1);
         vehicleDots.forEach((dot, dotIndex) => {
           const active = dotIndex === index;
           dot.classList.toggle("is-active", active);
@@ -180,6 +149,20 @@
       const stopVehicleDrag = () => { dragStartX = null; };
       vehicleTrack?.addEventListener("pointerup", stopVehicleDrag);
       vehicleTrack?.addEventListener("pointercancel", stopVehicleDrag);
+    </script>
+    <script type="module">
+      import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+      const buildGearsCanvas = document.querySelector("#build-gears-animation");
+      if (buildGearsCanvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        new DotLottie({
+          canvas: buildGearsCanvas,
+          src: "../assets/animations/gears-animation.lottie",
+          autoplay: true,
+          loop: true,
+          renderConfig: { autoResize: true }
+        });
+      }
     </script>
   </body>
 </html>
