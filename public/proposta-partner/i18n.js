@@ -9,7 +9,7 @@
   const copy = {
     it: {
       language: "Lingua", chooseLanguage: "Scegli la lingua", languageIntro: "Puoi modificarla in qualsiasi momento dalla barra in alto.", menu: "Menu", home: "Home", projects: "Progetti", explore: "Esplora", gallery: "Galleria", support: "Sostieni il progetto", maps: "Maps", projectTitle: "Low-budget<br>overland in<br><em>inappropriate<br>vehicles.</em>", showProject: "Show the Project", build: "Build in progress", soon: "Coming soon", pandaModel: "Modello 3D di Panda Anna", pandaFallback: "Il 3D non si è caricato. Ricarica la pagina oppure apri la preview nel browser.", vehicleSelection: "Selezione veicoli", controls: "Controlli selezione veicoli", chooseVehicle: "Scegli un veicolo",
-      vehicle: "Panda Anna", pandannaKicker: "Panda Project / Veicolo 01", medium: "Il mezzo", journey: "Il viaggio", curiosities: "Curiosità", pandannaIntro: "La seconda Panda che compro e restauro. Questa volta, però, l’idea è spingerla ben oltre ogni limite! Partire quasi senza soldi, usarla come un normalissimo camper e, a tratti, come un mezzo adatto all’off-road estremo.", spoiler: "Spoiler: non lo è.", mediumOne: "Una Panda 4×4 del 1998, comprata quasi morta e restaurata in giardino da qualcuno che meccanico non è.", mediumTwo: "Alla base, l’idea che chiunque può fare qualsiasi cosa, se è abbastanza testardo o irresponsabile da provarci.", mediumThree: "Con circa 7.000€ tra acquisto, restauro ed equipaggiamento, Pandanna è tornata in vita! Una specie di Frankenstein su quattro ruote, abbastanza inquietante da risultare affascinante.", journeyOne: "Sono partito il 4 maggio con 900 euro in tasca.", journeyTwo: "Destinazione? Non definita.<br>Limite di tempo? Assolutamente no.<br>Buonsenso? Nemmeno.", journeyThree: "Per ora Pandanna ha attraversato:", countries: "Italia · Grecia · Turchia · Georgia · Russia · Kazakistan · Uzbekistan · Kirghizistan · Tagikistan", journeyFour: "Adesso sto provando a riportarla in Italia passando da Mosca ed entrando in Europa dalla Lettonia.", curiosityOne: "ha partecipato alla realizzazione di un documentario per la televisione svizzera;", curiosityTwo: "ha attraversato una delle valli più impervie ed estreme dell’Asia Centrale;", curiosityThree: "ha lavorato come mezzo di trasporto per Burberry Georgia.", myMaps: "Le mie mappe", liveLocation: "Posizione live", findPanda: "Ritrova la Panda", backHome: "← Home", photos: "Foto", backJournal: "← Journal", travelPhotos: "Foto dal viaggio"
+      vehicle: "Panda Anna", pandannaKicker: "Panda Project / Veicolo 01", medium: "Il mezzo", journey: "Il viaggio", curiosities: "Curiosità", pandannaIntro: "La seconda Panda che compro e restauro. Questa volta, però, l’idea è spingerla ben oltre ogni limite! Partire quasi senza soldi, usarla come un normalissimo camper e, a tratti, come un mezzo adatto all’off-road estremo.", spoiler: "Spoiler: non lo è.", mediumOne: "Una Panda 4×4 del 1998, comprata quasi morta e restaurata in giardino da qualcuno che meccanico non è.", mediumTwo: "Alla base, l’idea che chiunque può fare qualsiasi cosa, se è abbastanza testardo o irresponsabile da provarci.", mediumThree: "Con circa 7.000€ tra acquisto, restauro ed equipaggiamento, Pandanna è tornata in vita! Una specie di Frankenstein su quattro ruote, abbastanza inquietante da risultare affascinante.", journeyOne: "Sono partito il 4 maggio con 900 euro in tasca.", journeyTwo: "Destinazione? Non definita.<br>Limite di tempo? Assolutamente no.<br>Buonsenso? Nemmeno.", journeyThree: "Per ora Pandanna ha attraversato:", countries: "Italia · Grecia · Turchia · Georgia · Russia · Kazakistan · Uzbekistan · Kirghizistan · Tagikistan", journeyFour: "Adesso sto provando a riportarla in Italia passando da Mosca ed entrando in Europa dalla Lettonia.", curiosityOne: "ha partecipato alla realizzazione di un documentario per la televisione svizzera;", curiosityTwo: "ha attraversato una delle valli più impervie ed estreme dell’Asia Centrale;", curiosityThree: "ha lavorato come mezzo di trasporto per Burberry Georgia.", myMaps: "Le mie mappe", liveLocation: "Posizione live", findPanda: "Ritrova la Panda", back: "← Back", photos: "Foto", backJournal: "← Journal", travelPhotos: "Foto dal viaggio"
     },
     en: {
       language: "Language", chooseLanguage: "Choose your language", languageIntro: "You can change it at any time from the top bar.", menu: "Menu", home: "Home", projects: "Projects", explore: "Explore", gallery: "Gallery", support: "Support the project", maps: "Maps", projectTitle: "Low-budget<br>overland in<br><em>inappropriate<br>vehicles.</em>", showProject: "Show the Project", build: "Build in progress", soon: "Coming soon", pandaModel: "3D model of Panda Anna", pandaFallback: "The 3D model did not load. Reload the page or open the preview in your browser.", vehicleSelection: "Vehicle selection", controls: "Vehicle selection controls", chooseVehicle: "Choose a vehicle",
@@ -26,9 +26,12 @@
   };
 
   const css = `
+    .quick-nav{display:grid!important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"back social actions";align-items:center;justify-content:initial}.quick-nav>.map-back{grid-area:back;justify-self:start}.quick-nav>.social-links{grid-area:social;justify-self:center}.quick-nav>.header-actions{grid-area:actions;justify-self:end;display:flex;align-items:center;gap:clamp(12px,1.6vw,24px)}.social-links{display:flex;align-items:center;gap:12px}.social-button{display:grid;place-items:center;width:38px;height:38px;color:var(--ink)!important;background:transparent!important}.social-button svg{width:21px;height:21px;fill:currentColor}.social-button:hover{color:var(--acid)!important;filter:none!important}.map-back{display:inline-flex;align-items:center;height:38px;padding-bottom:0;border-bottom:1px solid var(--line);color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.08em;line-height:1;text-transform:uppercase}.map-back:hover{color:var(--acid);border-color:var(--acid)}
     .language-toggle{display:inline-flex;align-items:center;gap:7px;height:38px;min-height:38px;padding:0;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--muted);font:600 11px Poppins,sans-serif;letter-spacing:.1em;line-height:1;text-transform:uppercase;cursor:pointer}.quick-nav .menu-button{height:38px;min-height:38px;padding-top:0;padding-bottom:0;line-height:1}.quick-nav>.language-toggle{margin-left:auto;margin-right:clamp(12px,1.6vw,24px)}.header-actions .language-toggle{margin-left:0}.language-toggle strong{color:var(--acid);font:500 13px "Space Grotesk",sans-serif}.language-toggle:hover{color:var(--acid)}
-    .language-modal{position:fixed;z-index:100;inset:0;display:grid;place-items:center;padding:20px;background:rgba(36,35,34,.78);backdrop-filter:blur(5px)}.language-modal[hidden]{display:none}.language-modal__panel{position:relative;width:min(420px,100%);padding:clamp(25px,5vw,46px);border:1px solid var(--line);background:var(--paper);box-shadow:0 18px 48px rgba(0,0,0,.35)}.language-modal__close{position:absolute;top:14px;right:16px;border:0;background:transparent;color:var(--acid);font-size:26px;cursor:pointer}.language-modal h2{font-size:clamp(38px,8vw,62px)}.language-modal p{max-width:28ch;margin:18px 0 30px;color:var(--muted);font-size:13px;line-height:1.5}.language-options{display:grid;gap:9px}.language-option{display:flex;align-items:center;justify-content:space-between;min-height:54px;padding:12px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 18px "Space Grotesk",sans-serif;letter-spacing:-.04em;cursor:pointer}.language-option:hover,.language-option.is-active{border-color:var(--acid);color:var(--acid)}.language-option span{color:var(--muted);font:600 10px Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase}@media(max-width:680px){.quick-nav>.language-toggle{margin-right:10px}.language-toggle,.quick-nav .menu-button{height:34px;min-height:34px}.language-toggle{font-size:10px}.language-modal__panel{padding:28px 22px}.language-modal p{margin-block:14px 22px}}
+    .language-modal{position:fixed;z-index:100;inset:0;display:grid;place-items:center;padding:20px;background:rgba(36,35,34,.78);backdrop-filter:blur(5px)}.language-modal[hidden]{display:none}.language-modal__panel{position:relative;width:min(420px,100%);padding:clamp(25px,5vw,46px);border:1px solid var(--line);background:var(--paper);box-shadow:0 18px 48px rgba(0,0,0,.35)}.language-modal__close{position:absolute;top:14px;right:16px;border:0;background:transparent;color:var(--acid);font-size:26px;cursor:pointer}.language-modal h2{font-size:clamp(38px,8vw,62px)}.language-modal p{max-width:28ch;margin:18px 0 30px;color:var(--muted);font-size:13px;line-height:1.5}.language-options{display:grid;gap:9px}.language-option{display:flex;align-items:center;justify-content:space-between;min-height:54px;padding:12px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 18px "Space Grotesk",sans-serif;letter-spacing:-.04em;cursor:pointer}.language-option:hover,.language-option.is-active{border-color:var(--acid);color:var(--acid)}.language-option span{color:var(--muted);font:600 10px Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase}@media(max-width:680px){.quick-nav>.header-actions{gap:10px}.social-links{gap:6px}.social-button{width:34px;height:34px}.social-button svg{width:19px;height:19px}.map-back,.language-toggle,.quick-nav .menu-button{height:34px;min-height:34px}.language-toggle{font-size:10px}.language-modal__panel{padding:28px 22px}.language-modal p{margin-block:14px 22px}}
   `;
+
+  const socialLinksMarkup = `<a class="social-button social-button--instagram" href="https://www.instagram.com/lucaorlandi____/" target="_blank" rel="noreferrer" aria-label="Apri Instagram di Panda Project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.25 2h9.5A5.25 5.25 0 0 1 22 7.25v9.5A5.25 5.25 0 0 1 16.75 22h-9.5A5.25 5.25 0 0 1 2 16.75v-9.5A5.25 5.25 0 0 1 7.25 2Zm0 2A3.25 3.25 0 0 0 4 7.25v9.5A3.25 3.25 0 0 0 7.25 20h9.5A3.25 3.25 0 0 0 20 16.75v-9.5A3.25 3.25 0 0 0 16.75 4h-9.5ZM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85Zm0 2A3.15 3.15 0 1 0 15.15 12 5.16 5.16 0 0 1 12 8.85ZM17.36 5.3a1.23 1.23 0 1 1-1.23 1.23 1.23 1.23 0 0 1 1.23-1.23Z" /></svg></a><a class="social-button social-button--youtube" href="https://www.youtube.com/@PandaProject-Luca" target="_blank" rel="noreferrer" aria-label="Apri YouTube di Panda Project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.19a2.99 2.99 0 0 0-2.1-2.12C17.63 4.57 12 4.57 12 4.57s-5.63 0-7.48.5a3 3 0 0 0-2.1 2.12A31.1 31.1 0 0 0 1.92 12a31.1 31.1 0 0 0 .5 4.81 3 3 0 0 0 2.1 2.12c1.85.5 7.48.5 7.48.5s5.63 0 7.48-.5a2.99 2.99 0 0 0 2.1-2.12 31.1 31.1 0 0 0 .5-4.81 31.1 31.1 0 0 0-.5-4.81ZM10.2 14.95V9.05L15.4 12l-5.2 2.95Z" /></svg></a>`;
 
   const apply = (language) => {
     const values = copy[language] || copy.it;
@@ -59,12 +62,76 @@
     document.head.append(Object.assign(document.createElement("style"), { textContent: css }));
     const header = document.querySelector(".quick-nav");
     if (!header) return;
+    const isHome = document.body.classList.contains("home-page");
+    const path = window.location.pathname;
+    const projectPath = path.split("/proposta-partner/")[1] || "";
+    const segments = projectPath.split("/").filter(Boolean);
+    const folders = path.endsWith("/") ? segments : segments.slice(0, -1);
+    const root = folders.map(() => "../").join("") || "./";
+
+    let socialLinks = header.querySelector(".social-links");
+    header.querySelectorAll(":scope > .social-button").forEach((button) => button.remove());
+    if (!socialLinks) {
+      socialLinks = document.createElement("div");
+      socialLinks.className = "social-links";
+      socialLinks.setAttribute("aria-label", "Canali Panda Project");
+    }
+    socialLinks.innerHTML = socialLinksMarkup;
+    header.append(socialLinks);
+
+    if (!isHome && !header.querySelector(".map-back")) {
+      const back = document.createElement("a");
+      back.className = "map-back";
+      back.href = `${root}index.html`;
+      back.dataset.i18n = "back";
+      back.textContent = "← Back";
+      header.append(back);
+    }
+
+    header.querySelectorAll(".map-back").forEach((back) => {
+      back.dataset.i18n = "back";
+      back.textContent = "← Back";
+      back.addEventListener("click", (event) => {
+        if (window.history.length > 1) {
+          event.preventDefault();
+          window.history.back();
+        }
+      });
+    });
+
+    let menu = header.querySelector(".menu-button");
+    let actions = header.querySelector(".header-actions");
+    if (!actions) {
+      actions = document.createElement("div");
+      actions.className = "header-actions";
+    }
+    if (!menu) {
+      menu = document.createElement("button");
+      menu.type = "button";
+      menu.className = "menu-button";
+      menu.id = "menu-button";
+      menu.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-controls", "site-menu");
+      menu.dataset.i18n = "menu";
+      menu.innerHTML = `Menu <span aria-hidden="true">+</span>`;
+    }
+    actions.append(menu);
+    header.append(actions);
+
+    if (!document.querySelector("#site-menu")) {
+      const siteMenu = document.createElement("aside");
+      siteMenu.className = "site-menu";
+      siteMenu.id = "site-menu";
+      siteMenu.setAttribute("aria-hidden", "true");
+      siteMenu.innerHTML = `<div class="site-menu__top"><span>Panda Project</span><button id="menu-close" type="button" aria-label="Chiudi menu">×</button></div><nav aria-label="Sezioni del progetto"><a href="${root}index.html" data-i18n="home">Home</a><span class="site-menu__label" data-i18n="projects">Progetti</span><a href="${root}projects/pandanna/index.html">Pandanna</a><span class="site-menu__label" data-i18n="explore">Esplora</span><a href="${root}maps/index.html" data-i18n="maps">Maps</a><a href="${root}journal/foto.html" data-i18n="gallery">Galleria</a><a class="site-menu__support" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer" data-i18n="support">Sostieni il progetto <span aria-hidden="true">↗</span></a></nav>`;
+      document.body.append(siteMenu);
+    }
+
     const toggle = document.createElement("button");
     toggle.type = "button";
     toggle.className = "language-toggle";
     toggle.innerHTML = `${copy.it.language} <strong>IT</strong>`;
-    const menu = header.querySelector(".menu-button");
-    if (menu) menu.parentElement.insertBefore(toggle, menu); else header.append(toggle);
+    menu.parentElement.insertBefore(toggle, menu);
     const modal = document.createElement("div");
     modal.className = "language-modal";
     modal.hidden = true;
@@ -75,6 +142,15 @@
     toggle.addEventListener("click", open);
     modal.querySelector(".language-modal__close").addEventListener("click", close);
     modal.addEventListener("click", (event) => { if (event.target === modal) close(); });
+    const siteMenu = document.querySelector("#site-menu");
+    const menuClose = document.querySelector("#menu-close");
+    const setMenu = (open) => {
+      siteMenu?.classList.toggle("is-open", open);
+      siteMenu?.setAttribute("aria-hidden", String(!open));
+      menu.setAttribute("aria-expanded", String(open));
+    };
+    menu.addEventListener("click", () => setMenu(true));
+    menuClose?.addEventListener("click", () => setMenu(false));
     modal.querySelectorAll(".language-option").forEach((button) => button.addEventListener("click", () => {
       const language = button.dataset.language;
       localStorage.setItem(storeKey, language);

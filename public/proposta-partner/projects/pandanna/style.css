@@ -60,7 +60,7 @@ h1 { font-size:clamp(64px,11vw,158px); }
   .menu-button { gap:12px; padding-left:8px; }
   .project-hero { min-height:43svh; min-height:43dvh; padding-top:88px; padding-bottom:30px; }
   .route-graphic { inset:18% -35% 0 8%; }
-  h1 { font-size:clamp(64px,22vw,104px); }
+  h1 { font-size:clamp(58px,18.5vw,80px); }
   .project-specs { gap:18px; }
   .spec { max-width:18ch; }
   .maps-button { min-height:38px; padding:8px 11px; font-size:11px; }
@@ -89,7 +89,7 @@ h1 { font-size:clamp(64px,11vw,158px); }
 
 @media (max-width:680px) and (max-height:700px) {
   .project-hero { min-height:41svh; min-height:41dvh; padding-top:76px; padding-bottom:22px; }
-  h1 { font-size:clamp(58px,19vw,86px); }
+  h1 { font-size:clamp(58px,18.5vw,80px); }
   .spec { font-size:15px; }
   .project-intro { min-height:59svh; min-height:59dvh; padding-block:16px 20px; font-size:clamp(20px,6.2vw,26px); }
   .project-intro__spoiler { margin-top:16px !important; }
