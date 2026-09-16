@@ -51,6 +51,13 @@ h1 { font-size:clamp(64px,11vw,158px); }
 .project-section li { position:relative; padding-left:22px; }
 .project-section li::before { content:"•"; position:absolute; left:0; color:var(--acid); }
 .project-section--last { border-bottom:1px solid var(--line); }
+.gallery-wip { display:grid; align-content:center; min-height:100dvh; max-width:1240px; margin:auto; padding:clamp(125px,16vw,190px) clamp(20px,4vw,48px) clamp(50px,8vw,100px); }
+.gallery-wip__copy { max-width:760px; }
+.gallery-wip__eyebrow { margin:0 0 18px; color:var(--acid); font-size:11px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; }
+.gallery-wip h1 { font-size:clamp(58px,8vw,116px); }
+.gallery-wip h1 em { color:var(--acid); font-family:Caveat,cursive; font-size:1.08em; font-style:normal; font-weight:600; letter-spacing:-.04em; }
+.gallery-wip p:not(.gallery-wip__eyebrow) { max-width:48ch; margin:32px 0 0; color:var(--muted); font-size:clamp(16px,1.5vw,20px); line-height:1.65; }
+.gallery-wip .maps-button { margin-top:28px; }
 @media (max-width:680px) {
   .quick-nav { top:14px; }
   .header-actions { gap:10px; }
@@ -90,4 +97,5 @@ h1 { font-size:clamp(64px,11vw,158px); }
   .spec { font-size:15px; }
   .project-intro { min-height:59svh; min-height:59dvh; padding-block:16px 20px; font-size:clamp(20px,6.2vw,26px); }
   .project-intro__spoiler { margin-top:16px !important; }
+  .gallery-wip { padding-top:112px; }
 }

@@ -1,4 +1,4 @@
-.quick-nav { position:absolute; z-index:10; top:clamp(18px,2.4vw,34px); left:clamp(20px,4vw,48px); right:clamp(20px,4vw,48px); display:grid !important; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); grid-template-areas:"back social actions"; align-items:center; justify-content:initial; min-height:38px; }
+.quick-nav { position:fixed; z-index:10; top:clamp(18px,2.4vw,34px); left:0; right:0; display:grid !important; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); grid-template-areas:"back social actions"; align-items:center; justify-content:initial; min-height:38px; padding-inline:clamp(20px,4vw,48px); background:var(--paper); box-shadow:0 -34px 0 34px var(--paper); }
 .quick-nav > .map-back { grid-area:back; justify-self:start; }
 .quick-nav > .social-links { grid-area:social; justify-self:center; display:flex; align-items:center; gap:12px; }
 .quick-nav > .header-actions { grid-area:actions; justify-self:end; display:flex; align-items:center; gap:clamp(12px,1.6vw,24px); }

@@ -11,7 +11,8 @@ const requiredFiles = [
   "public/proposta-partner/journal/diario.js",
   "public/proposta-partner/journal/content.js",
   "public/proposta-partner/maps/index.html",
-  "public/proposta-partner/projects/pandanna/index.html"
+  "public/proposta-partner/projects/pandanna/index.html",
+  "public/proposta-partner/projects/pandanna/gallery/index.html"
 ];
 
 await Promise.all(requiredFiles.map((file) => access(file, constants.R_OK)));
