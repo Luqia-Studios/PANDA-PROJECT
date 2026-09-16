@@ -6,13 +6,12 @@ body { margin:0; background:var(--paper); color:var(--ink); font-family:Poppins,
 a { color:inherit; text-decoration:none; }
 main { overflow:hidden; }
 .quick-nav { position:absolute; z-index:10; top:clamp(18px,2.4vw,34px); left:clamp(20px,4vw,48px); right:clamp(20px,4vw,48px); display:flex; align-items:center; justify-content:space-between; }
-.social-links { display:flex; gap:8px; }
+.social-links { display:flex; align-items:center; gap:12px; }
 .social-button,.menu-button,.site-menu__top button { border:0; color:var(--ink); background:transparent; cursor:pointer; }
-.social-button { display:grid; place-items:center; width:38px; height:38px; border:0; color:#fff; }
+.social-button { display:grid; place-items:center; width:38px; height:38px; border:0; color:var(--ink); background:transparent; }
 .social-button svg { width:21px; height:21px; fill:currentColor; }
-.social-button--instagram { background:#e4405f; }
-.social-button--youtube { background:#ff0000; }
-.social-button:hover { color:#fff; filter:brightness(1.13); }
+.social-button--instagram,.social-button--youtube { background:transparent; }
+.social-button:hover { color:var(--acid); filter:none; }
 .social-button.is-pending { cursor:default; }
 .menu-button:hover { color:var(--acid); border-color:var(--acid); }
 .menu-button { display:inline-flex; align-items:center; gap:18px; padding:9px 0 9px 12px; border-bottom:1px solid var(--line); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
