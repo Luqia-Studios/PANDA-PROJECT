@@ -2,7 +2,7 @@ import { createReadStream, stat } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join, normalize, resolve, sep } from "node:path";
 
-const root = resolve("public");
+const root = resolve(process.cwd());
 const port = 4173;
 const mimeTypes = {
   ".css": "text/css",

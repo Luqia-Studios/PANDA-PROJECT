@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Diario di bordo di Panda Project: preparazione, tappe e avventure in Panda 4×4." />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="canonical" href="https://panda-project.it/public/proposta-partner/journal/diario.html" />
     <title>Diario di bordo | Panda Project</title>
     <link rel="icon" href="../../../favicon.png" type="image/png" />
@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../style.css" /><link rel="stylesheet" href="./journal.css" />
   </head>
   <body><main class="journal-subpage"><header class="quick-nav"><a class="map-back" href="./index.html" data-i18n="backJournal">← Journal</a></header><section class="journal-entries" id="journal-entries" aria-label="Articoli del diario"></section></main>
-    <script src="../i18n.js?v=20260916-3"></script><script src="./content.js"></script><script>const entries = document.querySelector("#journal-entries"); window.PANDA_JOURNAL.entries.forEach((entry) => { const article = document.createElement("article"); article.className = "journal-entry"; const details = document.createElement("details"); const summary = document.createElement("summary"); summary.append(entry.title, Object.assign(document.createElement("span"), { textContent: "+" })); const body = document.createElement("div"); body.className = "journal-entry__body"; entry.paragraphs.forEach((paragraph) => { const text = document.createElement("p"); text.textContent = paragraph; body.append(text); }); details.append(summary, body); article.append(details); entries.append(article); });</script>
+    <script defer src="../i18n.js?v=20260916-5"></script>
+    <script defer src="../shared/site.js"></script>
+    <script defer src="./content.js"></script>
+    <script defer src="./diario.js"></script>
   </body>
 </html>

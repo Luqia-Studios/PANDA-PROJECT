@@ -30,7 +30,6 @@
         <a href="./index.html" aria-current="page">Pandanna</a>
         <span class="site-menu__label" data-i18n="explore">Esplora</span>
         <a href="../../maps/index.html" data-i18n="maps">Maps</a>
-        <a href="../../journal/foto.html" data-i18n="gallery">Galleria</a>
         <a class="site-menu__support" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer" data-i18n="support">Sostieni il progetto <span aria-hidden="true">↗</span></a>
       </nav>
     </aside>
@@ -45,7 +44,6 @@
             <p class="spec">Fiat Panda 141 4×4 · 1998</p>
             <div class="project-resource-links">
               <a class="maps-button" href="../../maps/index.html" data-i18n="maps">Maps <span aria-hidden="true">↗</span></a>
-              <a class="maps-button" href="../../journal/foto.html" data-i18n="gallery">Galleria <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </div>
@@ -100,18 +98,7 @@
       </article>
     </main>
 
-    <script src="../../i18n.js?v=20260916-3"></script>
-    <script>
-      const menuButton = document.querySelector("#menu-button");
-      const menuClose = document.querySelector("#menu-close");
-      const siteMenu = document.querySelector("#site-menu");
-      const setMenu = (open) => {
-        siteMenu?.classList.toggle("is-open", open);
-        siteMenu?.setAttribute("aria-hidden", String(!open));
-        menuButton?.setAttribute("aria-expanded", String(open));
-      };
-      menuButton?.addEventListener("click", () => setMenu(true));
-      menuClose?.addEventListener("click", () => setMenu(false));
-    </script>
+    <script defer src="../../i18n.js?v=20260916-5"></script>
+    <script defer src="../../shared/site.js"></script>
   </body>
 </html>

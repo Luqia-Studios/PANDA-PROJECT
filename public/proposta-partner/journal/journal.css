@@ -6,8 +6,6 @@
 .journal-links span { color:var(--acid); font-family:Poppins,sans-serif; font-size:clamp(18px,2vw,28px); }
 .journal-links a:hover { color:var(--acid); }
 .journal-subpage { min-height:100dvh; padding:clamp(82px,10vw,120px) clamp(18px,4vw,48px) clamp(28px,5vw,64px); }
-.journal-gallery { columns:3 15rem; column-gap:12px; max-width:1240px; margin:auto; }
-.journal-gallery img { display:block; width:100%; margin:0 0 12px; break-inside:avoid; filter:saturate(.82) contrast(1.04); }
 .journal-entries { display:grid; gap:clamp(42px,8vw,100px); max-width:780px; margin:auto; }
 .journal-entry { border-top:1px solid var(--line); }
 .journal-entry:last-child { border-bottom:1px solid var(--line); }
@@ -17,4 +15,4 @@
 .journal-entry[open] summary span { transform:rotate(45deg); }
 .journal-entry__body { max-width:58ch; padding:0 0 30px; }
 .journal-entry__body p { margin:0; color:var(--text); font-size:clamp(15px,1.5vw,17px); line-height:1.72; }
-@media (max-width:720px) { .journal-page { display:block; min-height:0; padding-top:76px; padding-bottom:28px; } .journal-links { grid-template-columns:1fr; margin-top:26px; } .journal-links a { min-height:0; padding:clamp(20px,7vw,30px) 0; border-right:0; border-bottom:1px solid var(--line); font-size:clamp(36px,12vw,54px); } .journal-links a:last-child { border-bottom:0; } .journal-subpage { padding-top:76px; } .journal-gallery { columns:2 9rem; column-gap:7px; } .journal-gallery img { margin-bottom:7px; } .journal-entries { gap:0; } .journal-entry summary { padding:22px 0; font-size:clamp(26px,8.5vw,36px); } .journal-entry__body { padding-bottom:24px; } }
+@media (max-width:720px) { .journal-page { display:block; min-height:0; padding-top:76px; padding-bottom:28px; } .journal-links { grid-template-columns:1fr; margin-top:26px; } .journal-links a { min-height:0; padding:clamp(20px,7vw,30px) 0; border-right:0; border-bottom:1px solid var(--line); font-size:clamp(36px,12vw,54px); } .journal-links a:last-child { border-bottom:0; } .journal-subpage { padding-top:76px; } .journal-entries { gap:0; } .journal-entry summary { padding:22px 0; font-size:clamp(26px,8.5vw,36px); } .journal-entry__body { padding-bottom:24px; } }
