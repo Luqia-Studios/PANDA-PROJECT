@@ -4,6 +4,8 @@ import { constants } from "node:fs";
 const requiredFiles = [
   "index.html",
   "src/home.html",
+  "public/proposta-partner/about/index.html",
+  "public/proposta-partner/shared/header.css",
   "public/proposta-partner/index.html",
   "public/proposta-partner/shared/site.js",
   "public/proposta-partner/journal/diario.js",

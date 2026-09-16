@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css?v=20260916-8" />
+    <link rel="stylesheet" href="./shared/header.css?v=20260916-1" />
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
   </head>
   <body class="home-page">
@@ -31,7 +32,7 @@
           <a href="./projects/pandanna/index.html">Pandanna</a>
           <span class="site-menu__label" data-i18n="explore">Esplora</span>
           <a href="./maps/index.html" data-i18n="maps">Maps</a>
-          <a class="site-menu__support" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer" data-i18n="support">Sostieni il progetto <span aria-hidden="true">↗</span></a>
+          <a href="./about/" data-i18n="about">About</a>
         </nav>
       </aside>
       <section class="hero" id="inizio">
@@ -43,6 +44,7 @@
         </div>
         <div class="hero-copy">
           <h1 data-i18n="projectTitle" data-i18n-html>Low-budget<br />overland in<br /><em>inappropriate<br />vehicles.</em></h1>
+          <a class="page-button hero-copy__about" href="./about/" data-i18n="about">About</a>
         </div>
         <section class="vehicle-swiper" aria-label="Selezione veicoli">
           <div class="vehicle-swiper__track" id="vehicle-swiper-track">
@@ -81,12 +83,9 @@
             <button class="vehicle-swiper__arrow" id="vehicle-next" type="button" aria-label="Veicolo successivo">&gt;</button>
           </div>
         </section>
-        <div class="hero-actions">
-          <a class="gofundme-badge" href="https://whydonate.com/it/fundraising/portiamo-pandanna-fino-in-cina" target="_blank" rel="noreferrer"><span>WhyDonate</span><small data-i18n="support">Sostieni il progetto ↗</small></a>
-        </div>
       </section>
     </main>
-    <script defer src="./i18n.js?v=20260916-6"></script>
+    <script defer src="./i18n.js?v=20260916-9"></script>
     <script defer src="./shared/site.js?v=20260916-2"></script>
     <script>
       const pandaModel = document.querySelector("#panda-model");
