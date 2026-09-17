@@ -25,14 +25,43 @@
     }
   };
 
+  const navigationCopy = {
+    it: { gallery: "Galleria" },
+    en: { gallery: "Gallery" },
+    ru: { gallery: "Галерея" },
+    de: { gallery: "Galerie" }
+  };
+
+  // Project names and established international names intentionally remain unchanged.
+  Object.assign(copy.it, {
+    about: "About", maps: "Mappe", projectTitle: "Overland<br>a basso costo con<br><em>veicoli<br>improbabili.</em>", showProject: "Scopri il progetto", build: "Progetto in corso", soon: "Prossimamente", back: "← Back", backHome: "← Home", gallery: "Galleria",
+    aboutHeading: "Il progetto<br /><em>Panda.</em>", aboutBack: "Home", journal: "Diario", journalEntry: "Diario di bordo", galleryTitle: "Galleria", galleryHint: "Trascina per esplorare", loading: "Caricamento…", noData: "Dati non disponibili", liveNow: "ora", mapArea: "Mappa della posizione di Panda", mapsArea: "Mappe di Panda Project", journalArea: "Diario Panda Project", journalEntries: "Articoli del diario", socialChannels: "Canali Panda Project", galleryRail: "Fotografie del viaggio di Pandanna", galleryThumbnails: "Seleziona una fotografia", galleryDialog: "Visualizzazione a schermo intero", close: "Chiudi", closeMenu: "Chiudi menu", closeGallery: "Chiudi galleria", previousPhoto: "Fotografia precedente", nextPhoto: "Fotografia successiva", previousVehicle: "Veicolo precedente", nextVehicle: "Veicolo successivo", openPhoto: "Apri fotografia {current} di {total}", goToPhoto: "Vai alla fotografia {current}", photo: "Fotografia {current} di {total}", projectSections: "Sezioni del progetto", openProjectResources: "Apri le risorse di Panda Anna", instagram: "Apri Instagram di Panda Project", youtube: "Apri YouTube di Panda Project"
+  });
+  Object.assign(copy.en, {
+    about: "About", maps: "Maps", projectTitle: "Low-budget<br>overland in<br><em>inappropriate<br>vehicles.</em>", showProject: "View project", build: "Project in progress", soon: "Coming soon", back: "← Back", backHome: "← Home", gallery: "Gallery",
+    aboutHeading: "About<br /><em>the project.</em>", aboutBack: "Back to home", journal: "Journal", journalEntry: "Travel journal", galleryTitle: "Gallery", galleryHint: "Drag to explore", loading: "Loading…", noData: "No data available", liveNow: "now", mapArea: "Panda location map", mapsArea: "Panda Project maps", journalArea: "Panda Project journal", journalEntries: "Journal entries", socialChannels: "Panda Project channels", galleryRail: "Photos from Pandanna's journey", galleryThumbnails: "Select a photo", galleryDialog: "Full-screen viewer", close: "Close", closeMenu: "Close menu", closeGallery: "Close gallery", previousPhoto: "Previous photo", nextPhoto: "Next photo", previousVehicle: "Previous vehicle", nextVehicle: "Next vehicle", openPhoto: "Open photo {current} of {total}", goToPhoto: "Go to photo {current}", photo: "Photo {current} of {total}", projectSections: "Project sections", openProjectResources: "Open Panda Anna resources", instagram: "Open Panda Project Instagram", youtube: "Open Panda Project YouTube"
+  });
+  Object.assign(copy.ru, {
+    about: "О проекте", maps: "Карты", projectTitle: "Бюджетный<br>оверлендинг на<br><em>неподходящих<br>автомобилях.</em>", showProject: "Открыть проект", build: "Проект в работе", soon: "Скоро", back: "← Назад", backHome: "← Главная", gallery: "Галерея",
+    aboutHeading: "О<br /><em>проекте.</em>", aboutBack: "На главную", journal: "Дневник", journalEntry: "Дневник путешествия", galleryTitle: "Галерея", galleryHint: "Перетаскивайте, чтобы посмотреть", loading: "Загрузка…", noData: "Нет данных", liveNow: "сейчас", mapArea: "Карта местоположения Panda", mapsArea: "Карты Panda Project", journalArea: "Дневник Panda Project", journalEntries: "Записи дневника", socialChannels: "Каналы Panda Project", galleryRail: "Фотографии из путешествия Pandanna", galleryThumbnails: "Выберите фотографию", galleryDialog: "Полноэкранный просмотр", close: "Закрыть", closeMenu: "Закрыть меню", closeGallery: "Закрыть галерею", previousPhoto: "Предыдущее фото", nextPhoto: "Следующее фото", previousVehicle: "Предыдущий автомобиль", nextVehicle: "Следующий автомобиль", openPhoto: "Открыть фото {current} из {total}", goToPhoto: "Перейти к фото {current}", photo: "Фото {current} из {total}", projectSections: "Разделы проекта", openProjectResources: "Открыть материалы Panda Anna", instagram: "Открыть Instagram Panda Project", youtube: "Открыть YouTube Panda Project"
+  });
+  Object.assign(copy.de, {
+    about: "Über das Projekt", maps: "Karten", projectTitle: "Günstiges<br>Overlanding mit<br><em>ungeeigneten<br>Fahrzeugen.</em>", showProject: "Projekt ansehen", build: "Projekt in Arbeit", soon: "Demnächst", back: "← Zurück", backHome: "← Startseite", gallery: "Galerie",
+    aboutHeading: "Über<br /><em>das Projekt.</em>", aboutBack: "Zur Startseite", journal: "Tagebuch", journalEntry: "Reisetagebuch", galleryTitle: "Galerie", galleryHint: "Zum Erkunden ziehen", loading: "Wird geladen…", noData: "Keine Daten verfügbar", liveNow: "jetzt", mapArea: "Karte der Panda-Position", mapsArea: "Karten von Panda Project", journalArea: "Tagebuch von Panda Project", journalEntries: "Tagebucheinträge", socialChannels: "Kanäle von Panda Project", galleryRail: "Fotos von Pandannas Reise", galleryThumbnails: "Foto auswählen", galleryDialog: "Vollbildansicht", close: "Schließen", closeMenu: "Menü schließen", closeGallery: "Galerie schließen", previousPhoto: "Vorheriges Foto", nextPhoto: "Nächstes Foto", previousVehicle: "Vorheriges Fahrzeug", nextVehicle: "Nächstes Fahrzeug", openPhoto: "Foto {current} von {total} öffnen", goToPhoto: "Zu Foto {current} gehen", photo: "Foto {current} von {total}", projectSections: "Projektbereiche", openProjectResources: "Panda-Anna-Ressourcen öffnen", instagram: "Instagram von Panda Project öffnen", youtube: "YouTube von Panda Project öffnen"
+  });
+  Object.assign(copy.it, { vehicleOne: "Veicolo 1 di 4", buildVehicle: "Progetto in corso, veicolo 2 di 4", soonVehicleThree: "Prossimamente, veicolo 3 di 4", soonVehicleFour: "Prossimamente, veicolo 4 di 4", showPanda: "Mostra Panda Anna", showBuild: "Mostra progetto in corso", showSoon: "Mostra progetto in arrivo" });
+  Object.assign(copy.en, { vehicleOne: "Vehicle 1 of 4", buildVehicle: "Project in progress, vehicle 2 of 4", soonVehicleThree: "Coming soon, vehicle 3 of 4", soonVehicleFour: "Coming soon, vehicle 4 of 4", showPanda: "Show Panda Anna", showBuild: "Show project in progress", showSoon: "Show upcoming project" });
+  Object.assign(copy.ru, { vehicleOne: "Автомобиль 1 из 4", buildVehicle: "Проект в работе, автомобиль 2 из 4", soonVehicleThree: "Скоро, автомобиль 3 из 4", soonVehicleFour: "Скоро, автомобиль 4 из 4", showPanda: "Показать Panda Anna", showBuild: "Показать проект в работе", showSoon: "Показать будущий проект" });
+  Object.assign(copy.de, { vehicleOne: "Fahrzeug 1 von 4", buildVehicle: "Projekt in Arbeit, Fahrzeug 2 von 4", soonVehicleThree: "Demnächst, Fahrzeug 3 von 4", soonVehicleFour: "Demnächst, Fahrzeug 4 von 4", showPanda: "Panda Anna anzeigen", showBuild: "Projekt in Arbeit anzeigen", showSoon: "Kommendes Projekt anzeigen" });
+
   const css = `
-    .language-modal{position:fixed;z-index:100;inset:0;display:grid;place-items:center;padding:20px;background:rgba(36,35,34,.78);backdrop-filter:blur(5px)}.language-modal[hidden]{display:none}.language-modal__panel{position:relative;width:min(420px,100%);padding:clamp(25px,5vw,46px);border:1px solid var(--line);background:var(--paper);box-shadow:0 18px 48px rgba(0,0,0,.35)}.language-modal__close{position:absolute;top:14px;right:16px;border:0;background:transparent;color:var(--acid);font-size:26px;cursor:pointer}.language-modal h2{font-size:clamp(38px,8vw,62px)}.language-modal p{max-width:28ch;margin:18px 0 30px;color:var(--muted);font-size:13px;line-height:1.5}.language-options{display:grid;gap:9px}.language-option{display:flex;align-items:center;justify-content:space-between;min-height:54px;padding:12px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 18px "Space Grotesk",sans-serif;letter-spacing:-.04em;cursor:pointer}.language-option:hover,.language-option.is-active{border-color:var(--acid);color:var(--acid)}.language-option span{color:var(--muted);font:600 10px Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase}@media(max-width:680px){.language-modal__panel{padding:28px 22px}.language-modal p{margin-block:14px 22px}}
+    .language-modal{position:fixed;z-index:100;inset:0;display:grid;place-items:center;padding:20px;background:rgba(36,35,34,.78);backdrop-filter:blur(5px);overflow-y:auto}.language-modal[hidden]{display:none}.language-modal__panel{position:relative;width:min(420px,100%);max-height:calc(100dvh - 40px);padding:clamp(25px,5vw,46px);border:1px solid var(--line);background:var(--paper);box-shadow:0 18px 48px rgba(0,0,0,.35);overflow-y:auto}.language-modal__close{position:absolute;top:14px;right:16px;border:0;background:transparent;color:var(--acid);font-size:26px;cursor:pointer}.language-modal h2{font-size:clamp(38px,8vw,62px)}.language-modal p{max-width:28ch;margin:18px 0 30px;color:var(--muted);font-size:13px;line-height:1.5}.language-options{display:grid;gap:9px}.language-option{display:flex;align-items:center;justify-content:space-between;min-height:54px;padding:12px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 18px "Space Grotesk",sans-serif;letter-spacing:-.04em;cursor:pointer}.language-option:hover,.language-option.is-active{border-color:var(--acid);color:var(--acid)}.language-option span{color:var(--muted);font:600 10px Poppins,sans-serif;letter-spacing:.1em;text-transform:uppercase}@media(max-width:680px){.language-modal__panel{padding:28px 22px}.language-modal p{margin-block:14px 22px}}@media(max-height:600px){.language-modal{place-items:start center;padding:14px}.language-modal__panel{max-height:calc(100dvh - 28px);padding:18px 22px}.language-modal h2{font-size:clamp(32px,8vw,44px);line-height:.92}.language-modal p{margin:10px 0 14px}.language-options{gap:6px}.language-option{min-height:40px;padding:7px 12px;font-size:16px}}
   `;
 
   const socialLinksMarkup = `<a class="social-button social-button--instagram" href="https://www.instagram.com/lucaorlandi____/" target="_blank" rel="noreferrer" aria-label="Apri Instagram di Panda Project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.25 2h9.5A5.25 5.25 0 0 1 22 7.25v9.5A5.25 5.25 0 0 1 16.75 22h-9.5A5.25 5.25 0 0 1 2 16.75v-9.5A5.25 5.25 0 0 1 7.25 2Zm0 2A3.25 3.25 0 0 0 4 7.25v9.5A3.25 3.25 0 0 0 7.25 20h9.5A3.25 3.25 0 0 0 20 16.75v-9.5A3.25 3.25 0 0 0 16.75 4h-9.5ZM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85Zm0 2A3.15 3.15 0 1 0 15.15 12 5.16 5.16 0 0 1 12 8.85ZM17.36 5.3a1.23 1.23 0 1 1-1.23 1.23 1.23 1.23 0 0 1 1.23-1.23Z" /></svg></a><a class="social-button social-button--youtube" href="https://www.youtube.com/@PandaProject-Luca" target="_blank" rel="noreferrer" aria-label="Apri YouTube di Panda Project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.19a2.99 2.99 0 0 0-2.1-2.12C17.63 4.57 12 4.57 12 4.57s-5.63 0-7.48.5a3 3 0 0 0-2.1 2.12A31.1 31.1 0 0 0 1.92 12a31.1 31.1 0 0 0 .5 4.81 3 3 0 0 0 2.1 2.12c1.85.5 7.48.5 7.48.5s5.63 0 7.48-.5a2.99 2.99 0 0 0 2.1-2.12 31.1 31.1 0 0 0 .5-4.81 31.1 31.1 0 0 0-.5-4.81ZM10.2 14.95V9.05L15.4 12l-5.2 2.95Z" /></svg></a>`;
 
   const apply = (language) => {
-    const values = copy[language] || copy.it;
+    const values = { ...copy.it, ...(copy[language] || {}), ...(navigationCopy[language] || navigationCopy.it) };
     document.documentElement.lang = language;
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       const value = values[element.dataset.i18n];
@@ -48,6 +77,16 @@
       const value = values[element.dataset.i18nAria];
       if (value) element.setAttribute("aria-label", value);
     });
+    document.querySelectorAll("[data-i18n-title]").forEach((element) => {
+      const value = values[element.dataset.i18nTitle];
+      if (value) element.title = value;
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+      const value = values[element.dataset.i18nAlt];
+      if (value) element.alt = value;
+    });
+    window.PANDA_I18N = { language, values };
+    document.dispatchEvent(new CustomEvent("panda-language-change", { detail: window.PANDA_I18N }));
     const toggle = document.querySelector(".language-toggle");
     if (toggle) {
       toggle.firstChild.nodeValue = `${values.language} `;
@@ -62,10 +101,7 @@
     if (!header) return;
     const isHome = document.body.classList.contains("home-page");
     const path = window.location.pathname;
-    const projectPath = path.split("/proposta-partner/")[1] || "";
-    const segments = projectPath.split("/").filter(Boolean);
-    const folders = path.endsWith("/") ? segments : segments.slice(0, -1);
-    const root = folders.map(() => "../").join("") || "./";
+    const isAbout = /\/about\/?$/.test(path);
 
     let socialLinks = header.querySelector(".social-links");
     if (!socialLinks) {
@@ -75,21 +111,21 @@
       header.append(socialLinks);
     }
     socialLinks.className = "social-links";
-    socialLinks.setAttribute("aria-label", "Canali Panda Project");
+    socialLinks.dataset.i18nAria = "socialChannels";
     socialLinks.innerHTML = socialLinksMarkup;
 
     if (!isHome && !header.querySelector(".map-back")) {
       const back = document.createElement("a");
       back.className = "map-back";
-      back.href = `${root}index.html`;
+      back.href = "/";
       back.dataset.i18n = "back";
-      back.textContent = "← Back";
+      back.textContent = "← Indietro";
       header.append(back);
     }
 
     header.querySelectorAll(".map-back").forEach((back) => {
       back.dataset.i18n = "back";
-      back.textContent = "← Back";
+      back.textContent = "← Indietro";
       back.addEventListener("click", (event) => {
         if (window.history.length > 1) {
           event.preventDefault();
@@ -122,7 +158,8 @@
       siteMenu.className = "site-menu";
       siteMenu.id = "site-menu";
       siteMenu.setAttribute("aria-hidden", "true");
-      siteMenu.innerHTML = `<div class="site-menu__top"><span>Panda Project</span><button id="menu-close" type="button" aria-label="Chiudi menu">×</button></div><nav aria-label="Sezioni del progetto"><a href="${root}index.html" data-i18n="home">Home</a><span class="site-menu__label" data-i18n="projects">Progetti</span><a href="${root}projects/pandanna/index.html">Pandanna</a><span class="site-menu__label" data-i18n="explore">Esplora</span><a href="${root}maps/index.html" data-i18n="maps">Maps</a><a href="${root}about/" data-i18n="about">About</a></nav>`;
+      const aboutLink = isAbout ? "" : `<a class="site-menu__about" href="/about/" data-i18n="about">Chi siamo</a>`;
+      siteMenu.innerHTML = `<div class="site-menu__top"><span>Panda Project</span><button id="menu-close" type="button" data-i18n-aria="closeMenu">×</button></div><nav data-i18n-aria="projectSections"><a class="site-menu__home" href="/" data-i18n="home">Home</a>${aboutLink}<span class="site-menu__label" data-i18n="projects">Progetti</span><div class="site-menu__project-row"><a href="/projects/pandanna/">Panda Anna</a><button class="site-menu__project-toggle" type="button" aria-expanded="false" aria-controls="pandanna-explore-menu" data-i18n-aria="openProjectResources"><span aria-hidden="true">&gt;</span></button></div><div class="site-menu__explore-panel" id="pandanna-explore-menu" hidden><a class="site-menu__project-link" href="/maps/" data-i18n="maps">Mappe</a><a class="site-menu__project-link" href="/projects/pandanna/gallery/" data-i18n="gallery">Galleria</a></div></nav>`;
       document.body.append(siteMenu);
     }
 
@@ -134,7 +171,7 @@
     const modal = document.createElement("div");
     modal.className = "language-modal";
     modal.hidden = true;
-    modal.innerHTML = `<div class="language-modal__panel" role="dialog" aria-modal="true" aria-labelledby="language-title"><button class="language-modal__close" type="button" aria-label="Chiudi">×</button><h2 id="language-title" data-i18n="chooseLanguage">Scegli la lingua</h2><p data-i18n="languageIntro">Puoi modificarla in qualsiasi momento dalla barra in alto.</p><div class="language-options">${Object.entries(languages).map(([code, language]) => `<button class="language-option" type="button" data-language="${code}">${language.native}<span>${code.toUpperCase()}</span></button>`).join("")}</div></div>`;
+    modal.innerHTML = `<div class="language-modal__panel" role="dialog" aria-modal="true" aria-labelledby="language-title"><button class="language-modal__close" type="button" data-i18n-aria="close">×</button><h2 id="language-title" data-i18n="chooseLanguage">Scegli la lingua</h2><p data-i18n="languageIntro">Puoi modificarla in qualsiasi momento dalla barra in alto.</p><div class="language-options">${Object.entries(languages).map(([code, language]) => `<button class="language-option" type="button" data-language="${code}">${language.native}<span>${code.toUpperCase()}</span></button>`).join("")}</div></div>`;
     document.body.append(modal);
     const open = () => {
       modal.hidden = false;

@@ -18,7 +18,7 @@ const requiredFiles = [
 await Promise.all(requiredFiles.map((file) => access(file, constants.R_OK)));
 
 const textFiles = await Promise.all(requiredFiles.map(async (file) => [file, await readFile(file, "utf8")]));
-const forbiddenGalleryReference = /foto\.html|journal-gallery|"gallery"/i;
+const forbiddenGalleryReference = /foto\.html|journal-gallery/i;
 
 for (const [file, content] of textFiles) {
   if (forbiddenGalleryReference.test(content)) {
@@ -28,6 +28,36 @@ for (const [file, content] of textFiles) {
 
 const home = await readFile("index.html", "utf8");
 if (/<iframe\b/i.test(home)) throw new Error("La homepage non deve usare iframe");
+if (!/projects\/pandanna\/gallery\//i.test(home)) throw new Error("La homepage deve includere il link alla galleria di Panda Anna");
+
+const seoPages = [
+  ["index.html", "https://panda-project.it/"],
+  ["public/proposta-partner/about/index.html", "https://panda-project.it/about/"],
+  ["public/proposta-partner/projects/pandanna/index.html", "https://panda-project.it/projects/pandanna/"],
+  ["public/proposta-partner/maps/index.html", "https://panda-project.it/maps/"],
+  ["public/proposta-partner/journal/diario.html", "https://panda-project.it/journal/diario/"]
+];
+
+const sitemap = await readFile("sitemap.xml", "utf8");
+if (sitemap.includes("proposta-partner")) throw new Error("La sitemap non deve esporre cartelle interne di sviluppo");
+for (const [file, canonical] of seoPages) {
+  const page = await readFile(file, "utf8");
+  if (!page.includes('name="robots" content="index, follow"')) throw new Error(`${file}: direttiva robots indicizzabile mancante`);
+  if (!page.includes(`rel="canonical" href="${canonical}"`)) throw new Error(`${file}: canonical mancante o non coerente`);
+  if (!page.includes('application/ld+json')) throw new Error(`${file}: dati strutturati mancanti`);
+  if (!sitemap.includes(`<loc>${canonical}</loc>`)) throw new Error(`${file}: URL canonica mancante dalla sitemap`);
+}
+
+const generatedPages = [
+  ["about/index.html", "https://panda-project.it/about/"],
+  ["projects/pandanna/index.html", "https://panda-project.it/projects/pandanna/"],
+  ["maps/index.html", "https://panda-project.it/maps/"],
+  ["journal/diario/index.html", "https://panda-project.it/journal/diario/"]
+];
+for (const [file, canonical] of generatedPages) {
+  const page = await readFile(file, "utf8");
+  if (!page.includes(`rel="canonical" href="${canonical}"`)) throw new Error(`${file}: pagina pubblica con canonical errata`);
+}
 
 new Function(await readFile("public/proposta-partner/shared/site.js", "utf8"));
 new Function(await readFile("public/proposta-partner/journal/diario.js", "utf8"));

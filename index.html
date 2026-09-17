@@ -7,14 +7,31 @@
     <meta name="description" content="Low-budget overland in inappropriate vehicles: Panda Project, viaggi e roadbook in Panda 4×4." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://panda-project.it/" />
+    <meta name="theme-color" content="#ffd400" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Panda Project" />
+    <meta property="og:title" content="Panda Project | Viaggi overland low budget in Panda 4×4" />
+    <meta property="og:description" content="Viaggi overland low budget e progetti improbabili a bordo di una Fiat Panda 4×4." />
+    <meta property="og:url" content="https://panda-project.it/" />
+    <meta property="og:image" content="https://panda-project.it/public/assets/images/panda-hero-snow.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Panda Project | Viaggi overland low budget in Panda 4×4" />
+    <meta name="twitter:description" content="Viaggi overland low budget e progetti improbabili a bordo di una Fiat Panda 4×4." />
+    <meta name="twitter:image" content="https://panda-project.it/public/assets/images/panda-hero-snow.jpg" />
     <title>Panda Project | Low-budget overland</title>
-    <link rel="icon" href="../../favicon.png" type="image/png" />
+    <link rel="icon" href="/public/icons/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="icon" href="/public/icons/favicon-192.png" type="image/png" sizes="192x192" />
+    <link rel="manifest" href="../../site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css?v=20260916-16" />
     <link rel="stylesheet" href="./shared/header.css?v=20260916-4" />
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://panda-project.it/#organization","name":"Panda Project","url":"https://panda-project.it/","logo":"https://panda-project.it/favicon.png","sameAs":["https://www.instagram.com/lucaorlandi____/","https://www.youtube.com/@PandaProject-Luca"]},{"@type":"WebSite","@id":"https://panda-project.it/#website","url":"https://panda-project.it/","name":"Panda Project","inLanguage":"it-IT","publisher":{"@id":"https://panda-project.it/#organization"}},{"@type":"WebPage","@id":"https://panda-project.it/#webpage","url":"https://panda-project.it/","name":"Panda Project | Viaggi overland low budget in Panda 4×4","description":"Viaggi overland low budget e progetti improbabili a bordo di una Fiat Panda 4×4.","isPartOf":{"@id":"https://panda-project.it/#website"},"inLanguage":"it-IT"}]}
+    </script>
   </head>
   <body class="home-page">
     <main>
@@ -28,11 +45,16 @@
       <aside class="site-menu" id="site-menu" aria-hidden="true">
         <div class="site-menu__top"><span>Panda Project</span><button id="menu-close" type="button" aria-label="Chiudi menu">×</button></div>
         <nav aria-label="Sezioni del progetto">
+          <a class="site-menu__about" href="/about/" data-i18n="about">About</a>
           <span class="site-menu__label" data-i18n="projects">Progetti</span>
-          <a href="./projects/pandanna/index.html">Pandanna</a>
-          <span class="site-menu__label" data-i18n="explore">Esplora</span>
-          <a href="./maps/index.html" data-i18n="maps">Maps</a>
-          <a href="./about/" data-i18n="about">About</a>
+          <div class="site-menu__project-row">
+            <a href="/projects/pandanna/">Panda Anna</a>
+            <button class="site-menu__project-toggle" type="button" aria-expanded="false" aria-controls="pandanna-explore-menu" aria-label="Apri le risorse di Panda Anna"><span aria-hidden="true">&gt;</span></button>
+          </div>
+          <div class="site-menu__explore-panel" id="pandanna-explore-menu" hidden>
+            <a class="site-menu__project-link" href="/maps/" data-i18n="maps">Maps</a>
+            <a class="site-menu__project-link" href="/projects/pandanna/gallery/" data-i18n="gallery">Gallery</a>
+          </div>
         </nav>
       </aside>
       <section class="hero" id="inizio">
@@ -44,43 +66,43 @@
         </div>
         <div class="hero-copy">
           <h1 data-i18n="projectTitle" data-i18n-html>Low-budget<br />overland in<br /><em>inappropriate<br />vehicles.</em></h1>
-          <a class="page-button hero-copy__about" href="./about/" data-i18n="about">About</a>
+          <a class="page-button hero-copy__about" href="/about/" data-i18n="about">About</a>
         </div>
-        <section class="vehicle-swiper" aria-label="Selezione veicoli">
+        <section class="vehicle-swiper" data-i18n-aria="vehicleSelection">
           <div class="vehicle-swiper__track" id="vehicle-swiper-track">
-            <article class="vehicle-slide" aria-label="Veicolo 1 di 4">
+            <article class="vehicle-slide" data-i18n-aria="vehicleOne">
               <h2 class="vehicle-slide__name" data-i18n="vehicle">Panda Anna</h2>
               <div class="hero-model" id="panda-model-shell">
-                <model-viewer id="panda-model" src="../assets/models/panda-3d.glb" alt="Modello 3D di Panda Anna" crossorigin="anonymous" camera-controls auto-rotate environment-image="neutral" exposure="1" shadow-intensity="0.3" bounds="tight" camera-target="auto auto auto" camera-orbit="36deg 72deg 88%" min-camera-orbit="auto auto 88%" max-camera-orbit="auto auto 88%" interaction-prompt="auto" interaction-prompt-threshold="500" disable-zoom disable-pan></model-viewer>
-                <p class="model-fallback" role="status">Il 3D non si è caricato. Ricarica la pagina oppure apri la preview nel browser.</p>
+                <model-viewer id="panda-model" src="../assets/models/panda-3d.glb" alt="Modello 3D di Panda Anna" data-i18n-alt="pandaModel" crossorigin="anonymous" camera-controls auto-rotate environment-image="neutral" exposure="1" shadow-intensity="0.3" bounds="tight" camera-target="auto auto auto" camera-orbit="36deg 72deg 88%" min-camera-orbit="auto auto 88%" max-camera-orbit="auto auto 88%" interaction-prompt="auto" interaction-prompt-threshold="500" disable-zoom disable-pan></model-viewer>
+                <p class="model-fallback" role="status" data-i18n="pandaFallback">Il 3D non si è caricato. Ricarica la pagina oppure apri la preview nel browser.</p>
               </div>
-              <a class="vehicle-slide__project" href="./projects/pandanna/index.html" data-i18n="showProject">Show the Project</a>
+              <a class="vehicle-slide__project" href="/projects/pandanna/" data-i18n="showProject">Show the Project</a>
             </article>
-            <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Build in progress, veicolo 2 di 4">
+            <article class="vehicle-slide vehicle-slide--placeholder" data-i18n-aria="buildVehicle">
               <div class="vehicle-placeholder__visual vehicle-placeholder__visual--build" aria-hidden="true"><canvas class="vehicle-placeholder__animation" id="build-gears-animation"></canvas></div>
               <h2 class="vehicle-slide__name" data-i18n="build">Build in progress</h2>
               <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled data-i18n="showProject">Show the Project</button>
             </article>
-            <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Coming soon, veicolo 3 di 4">
+            <article class="vehicle-slide vehicle-slide--placeholder" data-i18n-aria="soonVehicleThree">
               <div class="vehicle-placeholder__visual" aria-hidden="true"><span class="vehicle-placeholder__lock"></span></div>
               <h2 class="vehicle-slide__name" data-i18n="soon">Coming soon</h2>
               <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled data-i18n="showProject">Show the Project</button>
             </article>
-            <article class="vehicle-slide vehicle-slide--placeholder" aria-label="Coming soon, veicolo 4 di 4">
+            <article class="vehicle-slide vehicle-slide--placeholder" data-i18n-aria="soonVehicleFour">
               <div class="vehicle-placeholder__visual" aria-hidden="true"><span class="vehicle-placeholder__lock"></span></div>
               <h2 class="vehicle-slide__name" data-i18n="soon">Coming soon</h2>
               <button class="vehicle-slide__project vehicle-slide__project--locked" type="button" disabled data-i18n="showProject">Show the Project</button>
             </article>
           </div>
-          <div class="vehicle-swiper__controls" aria-label="Controlli selezione veicoli">
-            <button class="vehicle-swiper__arrow" id="vehicle-previous" type="button" aria-label="Veicolo precedente">&lt;</button>
-            <div class="vehicle-swiper__dots" role="tablist" aria-label="Scegli un veicolo">
-              <button class="vehicle-swiper__dot is-active" type="button" role="tab" aria-selected="true" aria-controls="panda-model-shell" aria-label="Mostra Panda Anna"></button>
-              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" aria-label="Mostra Build in progress"></button>
-              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" aria-label="Mostra Coming soon"></button>
-              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" aria-label="Mostra Coming soon"></button>
+          <div class="vehicle-swiper__controls" data-i18n-aria="controls">
+            <button class="vehicle-swiper__arrow" id="vehicle-previous" type="button" data-i18n-aria="previousVehicle" aria-label="Veicolo precedente">&lt;</button>
+            <div class="vehicle-swiper__dots" role="tablist" data-i18n-aria="chooseVehicle">
+              <button class="vehicle-swiper__dot is-active" type="button" role="tab" aria-selected="true" aria-controls="panda-model-shell" data-i18n-aria="showPanda"></button>
+              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" data-i18n-aria="showBuild"></button>
+              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" data-i18n-aria="showSoon"></button>
+              <button class="vehicle-swiper__dot" type="button" role="tab" aria-selected="false" data-i18n-aria="showSoon"></button>
             </div>
-            <button class="vehicle-swiper__arrow" id="vehicle-next" type="button" aria-label="Veicolo successivo">&gt;</button>
+            <button class="vehicle-swiper__arrow" id="vehicle-next" type="button" data-i18n-aria="nextVehicle" aria-label="Veicolo successivo">&gt;</button>
           </div>
         </section>
       </section>
