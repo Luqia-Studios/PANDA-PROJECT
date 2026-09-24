@@ -1,7 +1,9 @@
 (() => {
-  const media = [
+  const videos = [
     "VID_20260324_114732_076.mp4", "VID_20260324_114750_157.mp4", "VID_20260324_114758_858.mp4", "VID_20260324_114853_526.mp4", "VID_20260324_114910_159.mp4", "VID_20260324_114926_179.mp4", "VID_20260324_114944_424.mp4", "VID_20260324_114953_324.mp4", "VID_20260324_115052_304.mp4", "VID_20260324_115101_175.mp4", "VID_20260324_115109_960.mp4", "VID_20260324_115117_185.mp4", "VID_20260324_115124_677.mp4", "VID_20260324_115137_068.mp4", "VID_20260324_115202_075.mp4", "grecia-turchia/20260604_050252_1.mp4", "grecia-turchia/20260604_100523.mp4", "grecia-turchia/20260602_052715_1.mp4"
-  ].map((file) => `../../../../assets/videos/${file}`);
+  ].map((file) => ({ type: 'video', src: `../../../../assets/videos/${file}` }));
+  const media = [...window.PANDA_GALLERY_PHOTOS.map((photo) => ({ ...photo, type: 'photo' })), ...videos];
+  document.querySelectorAll('.project-gallery__counter b, .gallery-lightbox__counter b').forEach((item) => { item.textContent = media.length; });
   const rail = document.querySelector(".project-gallery__rail");
   const thumbnails = document.querySelector(".project-gallery__thumbnails");
   const dialog = document.querySelector(".gallery-lightbox");
@@ -32,12 +34,37 @@
     item.src = item.dataset.src;
     item.addEventListener("loadedmetadata", () => { item.currentTime = Math.min(0.35, Math.max(0, item.duration / 5)); }, { once: true });
   };
+  const photoPath = (source, variant) => `../../../../assets/images/gallery/${source.id}-${variant}.webp`;
+  const createMedia = (source, className, variant = 'preview') => {
+    if (source.type === 'video') return video(source.src, '', className);
+    const item = document.createElement('img');
+    item.className = className;
+    item.alt = '';
+    item.width = source.width;
+    item.height = source.height;
+    item.decoding = 'async';
+    item.draggable = false;
+    item.dataset.src = photoPath(source, variant);
+    if (variant === 'preview') {
+      const smallWidth = Math.round(source.width * Math.min(1, 640 / Math.max(source.width, source.height)));
+      const previewWidth = Math.round(source.width * Math.min(1, 1120 / Math.max(source.width, source.height)));
+      item.dataset.srcset = `${photoPath(source, 'small')} ${smallWidth}w, ${photoPath(source, 'preview')} ${previewWidth}w`;
+      item.sizes = `(max-width: 760px) min(88vw, ${Math.round(50 * source.width / source.height)}vh), min(1030px, ${Math.round(60 * source.width / source.height)}vh)`;
+    }
+    return item;
+  };
+  const loadMedia = (item) => {
+    if (!item || item.getAttribute('src')) return;
+    if (item.tagName === 'VIDEO') { loadFrame(item); return; }
+    if (item.dataset.srcset) item.srcset = item.dataset.srcset;
+    item.src = item.dataset.src;
+  };
   const slides = media.map((source, index) => {
     const slide = document.createElement("button");
     slide.type = "button";
     slide.className = "project-gallery__slide";
     slide.setAttribute("aria-label", `Apri fotografia ${number(index)} di ${media.length}`);
-    slide.append(video(source, "", "project-gallery__image"));
+    slide.append(createMedia(source, "project-gallery__image"));
     slide.addEventListener("click", () => { if (!dragged) openLightbox(index); });
     rail.append(slide);
     return slide;
@@ -47,16 +74,23 @@
     thumb.type = "button";
     thumb.className = "project-gallery__thumbnail";
     thumb.setAttribute("aria-label", `Vai alla fotografia ${number(index)}`);
-    thumb.append(video(source, "", "project-gallery__thumbnail-image"));
+    thumb.append(createMedia(source, "project-gallery__thumbnail-image", 'thumb'));
     thumb.addEventListener("click", () => select(index, true));
     thumbnails.append(thumb);
     return thumb;
   });
   const loadNear = (index) => [index - 1, index, index + 1].forEach((nearby) => {
     if (nearby < 0 || nearby >= media.length) return;
-    loadFrame(slides[nearby].querySelector("video"));
-    loadFrame(thumbs[nearby].querySelector("video"));
+    loadMedia(slides[nearby].firstElementChild);
+    loadMedia(thumbs[nearby].firstElementChild);
   });
+  const thumbnailObserver = new IntersectionObserver((entries) => {
+    entries.filter((entry) => entry.isIntersecting).forEach((entry) => {
+      loadMedia(entry.target.firstElementChild);
+      thumbnailObserver.unobserve(entry.target);
+    });
+  }, { root: thumbnails, rootMargin: '80px' });
+  thumbs.forEach((thumb) => thumbnailObserver.observe(thumb));
   const select = (index, scroll = false) => {
     active = Math.max(0, Math.min(index, media.length - 1));
     counter.textContent = number(active);
@@ -82,12 +116,11 @@
     scrollStart = rail.scrollLeft;
     dragging = true;
     dragged = false;
-    rail.setPointerCapture(event.pointerId);
   });
   rail.addEventListener("pointermove", (event) => {
     if (!dragging) return;
     const distance = event.clientX - pointerStart;
-    if (Math.abs(distance) > 6) dragged = true;
+    if (Math.abs(distance) > 6) { dragged = true; rail.setPointerCapture(event.pointerId); }
     rail.scrollLeft = scrollStart - distance;
   });
   rail.addEventListener("pointerup", (event) => {
@@ -104,13 +137,14 @@
     event.preventDefault();
   }, { passive: false });
   const renderLightbox = () => {
-    stage.replaceChildren(video(media[active], label("photo", active) || `Fotografia ${number(active)} di ${media.length}`, "gallery-lightbox__image"));
-    loadFrame(stage.firstElementChild);
+    stage.replaceChildren(createMedia(media[active], "gallery-lightbox__image", 'full'));
+    loadMedia(stage.firstElementChild);
     select(active);
   };
   const openLightbox = (index) => { select(index); renderLightbox(); dialog.showModal(); dialog.querySelector(".gallery-lightbox__close").focus(); };
   const stepLightbox = (amount) => { select(active + amount); renderLightbox(); };
   dialog.querySelector(".gallery-lightbox__close").addEventListener("click", () => dialog.close());
+  dialog.addEventListener('close', () => stage.replaceChildren());
   dialog.querySelector(".gallery-lightbox__previous").addEventListener("click", () => stepLightbox(-1));
   dialog.querySelector(".gallery-lightbox__next").addEventListener("click", () => stepLightbox(1));
   dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
