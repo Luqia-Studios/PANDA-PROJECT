@@ -5,6 +5,12 @@
   "scripts": {
     "dev": "node scripts/dev-server.mjs",
     "build": "node scripts/build.mjs",
-    "check": "node scripts/build.mjs && node scripts/check.mjs"
+    "check": "node scripts/build.mjs && node scripts/check.mjs",
+    "test:maps": "node --test scripts/maps.test.mjs",
+    "test:layout": "node scripts/build.mjs && node --test scripts/layout.test.mjs",
+    "test:language": "node --test scripts/language.test.mjs",
+    "optimize:model": "node scripts/optimize-model.mjs",
+    "perf:fixtures": "node scripts/build.mjs && node scripts/performance-fixtures.mjs",
+    "test:seo": "node scripts/build.mjs && node --test scripts/seo.test.mjs"
   }
 }

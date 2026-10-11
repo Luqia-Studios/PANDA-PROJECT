@@ -9,25 +9,32 @@
     <meta property="og:locale" content="it_IT" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Panda Project" />
-    <meta property="og:title" content="Galleria Pandanna | Panda Project" />
+    <meta property="og:title" content="Galleria | Panda Project" />
     <meta property="og:description" content="Foto e video dei viaggi di Pandanna, la Fiat Panda 4×4 del Panda Project." />
     <meta property="og:url" content="https://panda-project.it/projects/pandanna/gallery/" />
     <meta property="og:image" content="https://panda-project.it/public/assets/images/panda-hero-snow.jpg" />
+    <meta property="og:image:width" content="4320" />
+    <meta property="og:image:height" content="2428" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Panda Anna sulla neve, con bagagli sul tetto e montagne sullo sfondo." />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Galleria Pandanna | Panda Project</title>
+    <meta name="twitter:title" content="Galleria | Panda Project" />
+    <meta name="twitter:description" content="Foto e video dei viaggi di Pandanna, la Fiat Panda 4×4 del Panda Project." />
+    <meta name="twitter:image" content="https://panda-project.it/public/assets/images/panda-hero-snow.jpg" />
+    <meta name="twitter:image:alt" content="Panda Anna sulla neve, con bagagli sul tetto e montagne sullo sfondo." />
+    <title data-i18n="galleryPageTitle">Galleria | Panda Project</title>
     <link rel="icon" href="../../../../../favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../style.css?v=20260917-1" />
-    <link rel="stylesheet" href="../../../shared/header.css?v=20260916-4" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../shared/base.css?v=20261011-16" />
+    <link rel="stylesheet" href="../../../shared/components.css?v=20261011-16" />
+    <link rel="stylesheet" href="../style.css?v=20261011-19" />
+    <link rel="stylesheet" href="../../../shared/header.css?v=20261011-16" />
   </head>
-  <body>
-    <header class="quick-nav">
-      <div class="social-links" aria-label="Canali Panda Project"></div>
-      <div class="header-actions"><button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-menu" data-i18n="menu">Menu <span aria-hidden="true">+</span></button></div>
-    </header>
-    <main class="project-gallery" aria-labelledby="gallery-title">
+  <body class="pandanna-page">
+    <!-- site:header -->
+    <main class="page-container project-gallery" aria-labelledby="gallery-title">
       <p class="project-gallery__eyebrow">Pandanna</p>
       <h1 id="gallery-title" data-i18n="galleryTitle">Galleria</h1>
       <p class="project-gallery__hint" aria-hidden="true" data-i18n="galleryHint">Trascina per esplorare</p>
@@ -37,6 +44,7 @@
         <div class="project-gallery__thumbnails" data-i18n-aria="galleryThumbnails"></div>
       </div>
     </main>
+    <!-- site:footer -->
     <dialog class="gallery-lightbox" data-i18n-aria="galleryDialog">
       <button class="gallery-lightbox__close" type="button" data-i18n-aria="closeGallery">×</button>
       <button class="gallery-lightbox__previous" type="button" data-i18n-aria="previousPhoto">←</button>
@@ -45,8 +53,12 @@
       <p class="gallery-lightbox__counter" aria-live="polite"><span>01</span> / <b>18</b></p>
     </dialog>
     <script defer src="./photos.js?v=20260924-1"></script>
-    <script defer src="./gallery.js?v=20260924-1"></script>
-    <script defer src="../../../i18n.js?v=20260917-3"></script>
-    <script defer src="../../../shared/site.js?v=20260917-2"></script>
+    <script defer src="./gallery.js?v=20261011-19"></script>
+    <script defer src="../../../shared/translations.js?v=20261011-22"></script>
+    <script defer src="../../../i18n.js?v=20261011-6"></script>
+    <script defer src="../../../shared/language.js?v=20261011-2"></script>
+    <script defer src="../../../shared/site.js?v=20261011-4"></script>
+  <!-- site:menu -->
+  <!-- site:language -->
   </body>
 </html>

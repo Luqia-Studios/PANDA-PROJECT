@@ -1,46 +1,56 @@
 (() => {
   const initializeMenu = () => {
-    const menuButton = document.querySelector("#menu-button");
-    const menuClose = document.querySelector("#menu-close");
-    const siteMenu = document.querySelector("#site-menu");
-    const exploreToggle = siteMenu?.querySelector(".site-menu__project-toggle");
-    const explorePanel = siteMenu?.querySelector(".site-menu__explore-panel");
+    const menuButton = document.querySelector("[data-menu-open]");
+    const menuClose = document.querySelector("[data-menu-close]");
+    const siteMenu = document.querySelector("[data-site-menu]");
 
     if (!menuButton || !siteMenu || menuButton.dataset.menuReady === "true") return;
 
-    const setExplore = (open) => {
-      if (!exploreToggle || !explorePanel) return;
-      explorePanel.hidden = !open;
-      exploreToggle.setAttribute("aria-expanded", String(open));
+    const openMenu = () => {
+      if (siteMenu.open) return;
+      siteMenu.inert = false;
+      siteMenu.showModal();
+      siteMenu.classList.add("is-open");
+      menuButton.setAttribute("aria-expanded", "true");
+      menuClose?.focus();
     };
-
-    const setMenu = (open) => {
-      siteMenu.classList.toggle("is-open", open);
-      siteMenu.setAttribute("aria-hidden", String(!open));
-      menuButton.setAttribute("aria-expanded", String(open));
-      if (open) menuClose?.focus();
-      else {
-        setExplore(false);
-        menuButton.focus();
-      }
-    };
+    const closeMenu = () => { if (siteMenu.open) siteMenu.close(); };
 
     menuButton.dataset.menuReady = "true";
-    menuButton.addEventListener("click", () => setMenu(true));
-    menuClose?.addEventListener("click", () => setMenu(false));
-    exploreToggle?.addEventListener("click", () => setExplore(exploreToggle.getAttribute("aria-expanded") !== "true"));
+    menuButton.setAttribute("aria-haspopup", "dialog");
+    siteMenu.inert = true;
+    menuButton.addEventListener("click", openMenu);
+    menuClose?.addEventListener("click", closeMenu);
     siteMenu.addEventListener("click", (event) => {
-      if (event.target.closest("a")) {
-        siteMenu.classList.remove("is-open");
-        siteMenu.setAttribute("aria-hidden", "true");
-        menuButton.setAttribute("aria-expanded", "false");
+      if (event.target.closest("a")) closeMenu();
+    });
+    // Escape closes the native modal. Tab wraps inside its visible controls.
+    siteMenu.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab") return;
+      const controls = [...siteMenu.querySelectorAll('a[href], button:not(:disabled)')]
+        .filter((control) => control.getClientRects().length && !control.closest('[hidden], [inert]'));
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
       }
     });
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") setMenu(false);
+    siteMenu.addEventListener("close", () => {
+      siteMenu.classList.remove("is-open");
+      siteMenu.inert = true;
+      menuButton.setAttribute("aria-expanded", "false");
+      const returnFocus = menuButton.getClientRects().length ? menuButton : document.querySelector('[data-home-brand]');
+      returnFocus?.focus();
     });
-    window.addEventListener("pageshow", () => {
-      setMenu(false);
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) closeMenu();
+    });
+    window.matchMedia('(min-width:768px)').addEventListener('change', (event) => {
+      if (event.matches) closeMenu();
     });
   };
 

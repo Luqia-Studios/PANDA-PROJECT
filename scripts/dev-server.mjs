@@ -11,6 +11,7 @@ const mimeTypes = {
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".lottie": "application/zip",
+  ".mp4": "video/mp4",
   ".png": "image/png",
   ".svg": "image/svg+xml",
   ".webp": "image/webp"
@@ -35,7 +36,8 @@ const server = createServer(async (request, response) => {
     });
     response.end(file);
   } catch {
-    response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }).end("Page not found");
+    const fallback = await readFile(join(root, "404.html")).catch(() => null);
+    response.writeHead(404, { "Content-Type": fallback ? "text/html; charset=utf-8" : "text/plain; charset=utf-8", "Cache-Control":"no-store" }).end(fallback || "Page not found");
   }
 });
 
@@ -48,7 +50,7 @@ const startServer = (portToUse) => {
   });
 
   server.listen(portToUse, () => {
-    console.log(`Panda Project disponibile su http://localhost:${portToUse}`);
+    console.log(`Panda Project disponibile su http://localhost:${server.address().port}`);
   });
 };
 

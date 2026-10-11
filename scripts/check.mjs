@@ -5,12 +5,21 @@ const requiredFiles = [
   "index.html",
   "src/home.html",
   "public/proposta-partner/about/index.html",
+  "public/proposta-partner/shared/base.css",
+  "public/proposta-partner/shared/components.css",
+  "public/proposta-partner/shared/translations.json",
+  "public/proposta-partner/shared/translations.js",
+  "public/proposta-partner/shared/language.js",
+  "src/shared/header.html",
+  "src/shared/menu.html",
+  "src/shared/language.html",
+  "src/shared/socials.html",
+  "src/shared/footer.html",
   "public/proposta-partner/shared/header.css",
   "public/proposta-partner/index.html",
   "public/proposta-partner/shared/site.js",
-  "public/proposta-partner/journal/diario.js",
-  "public/proposta-partner/journal/content.js",
   "public/proposta-partner/maps/index.html",
+  "public/proposta-partner/maps/maps.js",
   "public/proposta-partner/projects/pandanna/index.html",
   "public/proposta-partner/projects/pandanna/gallery/index.html"
 ];
@@ -32,10 +41,9 @@ if (!/projects\/pandanna\/gallery\//i.test(home)) throw new Error("La homepage d
 
 const seoPages = [
   ["index.html", "https://panda-project.it/"],
-  ["public/proposta-partner/about/index.html", "https://panda-project.it/about/"],
-  ["public/proposta-partner/projects/pandanna/index.html", "https://panda-project.it/projects/pandanna/"],
-  ["public/proposta-partner/maps/index.html", "https://panda-project.it/maps/"],
-  ["public/proposta-partner/journal/diario.html", "https://panda-project.it/journal/diario/"]
+  ["about/index.html", "https://panda-project.it/about/"],
+  ["projects/pandanna/index.html", "https://panda-project.it/projects/pandanna/"],
+  ["maps/index.html", "https://panda-project.it/maps/"],
 ];
 
 const sitemap = await readFile("sitemap.xml", "utf8");
@@ -52,7 +60,6 @@ const generatedPages = [
   ["about/index.html", "https://panda-project.it/about/"],
   ["projects/pandanna/index.html", "https://panda-project.it/projects/pandanna/"],
   ["maps/index.html", "https://panda-project.it/maps/"],
-  ["journal/diario/index.html", "https://panda-project.it/journal/diario/"]
 ];
 for (const [file, canonical] of generatedPages) {
   const page = await readFile(file, "utf8");
@@ -60,7 +67,9 @@ for (const [file, canonical] of generatedPages) {
 }
 
 new Function(await readFile("public/proposta-partner/shared/site.js", "utf8"));
-new Function(await readFile("public/proposta-partner/journal/diario.js", "utf8"));
-new Function(await readFile("public/proposta-partner/journal/content.js", "utf8"));
+new Function(await readFile("public/proposta-partner/i18n.js", "utf8"));
+new Function(await readFile("public/proposta-partner/shared/language.js", "utf8"));
+new Function(await readFile("public/proposta-partner/shared/translations.js", "utf8"));
+new Function(await readFile("public/proposta-partner/maps/maps.js", "utf8"));
 
 console.log("Controlli statici completati.");
