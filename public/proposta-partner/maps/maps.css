@@ -17,9 +17,7 @@
 .live-map-fit { position:absolute; top:8px; right:8px; z-index:var(--layer-controls); padding:8px 10px; border:1px solid #ddd; border-radius:10px; background:rgba(255,255,255,.85); color:#111; font:13px/1 system-ui; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.12); }
 .live-map-fit:hover { background:#fff; }
 .live-map-fit:disabled { opacity:.55; cursor:default; }
-.live-status-details { display:grid; gap:4px; margin-top:10px; color:var(--muted); font:12px/1.4 var(--font-body); overflow-wrap:anywhere; }
 .live-map-fit { left:8px; right:auto; }
-.live-status-details span:empty { display:none; }
 .map-embed-status { margin-bottom:10px; color:var(--muted); font-size:12px; line-height:1.4; }
 .map-external-link { display:inline-block; margin-top:12px; color:var(--acid); font-size:13px; border-bottom:1px solid var(--line); }
 .map-external-link:focus-visible,.live-map-fit:focus-visible { outline:2px solid var(--acid); outline-offset:3px; }
