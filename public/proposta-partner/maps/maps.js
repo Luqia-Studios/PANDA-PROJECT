@@ -6,6 +6,7 @@
   const dataStatus = document.querySelector('#live-data-state');
   const freshness = document.querySelector('#live-freshness');
   const updated = document.querySelector('#live-updated');
+  const badge = document.querySelector('#live-status');
   const roadbook = document.querySelector('#roadbook-map');
   const roadbookStatus = document.querySelector('#roadbook-status');
   const fallbackCenter = { lat: 45.57, lon: 10.24 };
@@ -38,6 +39,11 @@
     dataStatus.textContent = text(dataState);
     roadbookStatus.textContent = text(roadbookState);
     liveFit.disabled = !mapReady || !lastPoint;
+    if (badge) {
+      const minutes = lastPoint?.ts === null || !lastPoint ? null : Math.max(0, Math.floor((Date.now() - lastPoint.ts) / 60000));
+      const age = minutes === null ? text('timestampMissing') : minutes < 1 ? (window.PANDA_I18N?.values.liveNow || 'ora') : minutes < 60 ? `${minutes}m` : `${Math.floor(minutes / 60)}h`;
+      badge.textContent = mapState === 'mapError' ? text(mapState) : dataState !== 'positionReady' ? text(dataState) : lastPoint ? `${window.PANDA_I18N?.values.liveLocation || 'Posizione live'} - ${age}${lastPoint.mode ? ` - ${lastPoint.mode}` : ''} - r:${Math.round(lastPoint.radiusM / 1000)}km` : text(mapState);
+    }
     freshness.textContent = lastPoint ? `${text(lastPoint.ts === null ? 'timestampMissing' : Date.now() - lastPoint.ts <= recentAge ? 'positionRecent' : 'positionStale')} · ${text('positionArea')}: ${Math.round(lastPoint.radiusM / 1000)} km` : '';
     updated.replaceChildren();
     if (lastPoint?.ts !== null && lastPoint?.ts !== undefined) {
@@ -97,7 +103,7 @@
       const point = await response.json();
       if (!point?.ok || !Number.isFinite(point.lat) || Math.abs(point.lat) > 90 || !Number.isFinite(point.lon) || Math.abs(point.lon) > 180 || (point.radiusM !== undefined && (!Number.isFinite(point.radiusM) || point.radiusM <= 0))) throw new Error('Invalid position');
       if (request.signal.aborted) return;
-      lastPoint = { lat: point.lat, lon: point.lon, radiusM: point.radiusM ?? 4000, ts: timestamp(point.ts) };
+      lastPoint = { lat: point.lat, lon: point.lon, radiusM: point.radiusM ?? 4000, ts: timestamp(point.ts), mode: typeof point.mode === 'string' ? point.mode.trim().toLowerCase() : '' };
       dataState = 'positionReady';
       try { renderPoint(); } catch { mapState = 'mapError'; }
     } catch {

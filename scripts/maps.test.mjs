@@ -18,7 +18,7 @@ async function harness(options = {}) {
     replaceChildren(...children) { this._text = ''; this.children = children; }
     addEventListener(type, callback) { this[type] = callback; }
   }
-  const ids = ['live-map', 'live-map-fit', 'live-map-state', 'live-data-state', 'live-freshness', 'live-updated', 'roadbook-map', 'roadbook-status'];
+  const ids = ['live-status', 'live-map', 'live-map-fit', 'live-map-state', 'live-data-state', 'live-freshness', 'live-updated', 'roadbook-map', 'roadbook-status'];
   const nodes = Object.fromEntries(ids.map((id) => [id, new Element()]));
   const document = { hidden: false, documentElement: { lang: 'it' }, querySelector: (selector) => nodes[selector.slice(1)], querySelectorAll: () => [], createElement: () => new Element(), addEventListener: (type, callback) => { listeners[type] = callback; }, head: { append: (script) => { if (options.library !== 'hang') queueMicrotask(() => script.onerror()); } } };
   class MapMock {
@@ -165,4 +165,13 @@ test('keeps the last good position after a failed update and ages it locally', a
   assert.match(h.nodes['live-freshness'].textContent, /Dati non aggiornati/);
   h.mapEvents.webglcontextlost();
   assert.equal(h.nodes['live-map-fit'].disabled, true);
+});
+
+test('compact badge preserves received age, mode and radius without losing detailed freshness', async () => {
+  const h = await harness({point:{ok:true,lat:45,lon:10,radiusM:4000,ts:initialTime-3600000,mode:'COARSE'}});
+  assert.equal(h.nodes['live-status'].textContent, 'Posizione live - 1h - coarse - r:4km');
+  assert.match(h.nodes['live-freshness'].textContent, /Dati non aggiornati/);
+  assert.equal(h.nodes['live-updated'].children[1].dateTime, '2026-10-11T11:00:00.000Z');
+  await h.visibility(true);
+  assert.equal(h.nodes['live-status'].textContent, 'Aggiornamenti sospesi');
 });

@@ -13,13 +13,13 @@
 .panda-marker::before,.panda-marker::after { content:""; position:absolute; inset:0; border-radius:50%; }
 .panda-marker::before { border:2px solid #fff; background:#ff3b30; box-shadow:0 0 0 3px rgba(255,59,48,.35); }
 .panda-marker::after { inset:-3px; border:1px solid rgba(255,59,48,.45); animation:panda-marker-pulse 1.9s ease-out infinite; }
-.live-status-bar { position:absolute; left:8px; bottom:8px; z-index:var(--layer-controls); padding:6px 8px; border-radius:8px; background:rgba(0,0,0,.55); color:#fff; font:12px/1.2 system-ui; }
+.live-status-bar { position:absolute; left:8px; bottom:8px; z-index:var(--layer-controls); max-width:calc(100% - 56px); padding:6px 8px; border-radius:8px; background:rgba(0,0,0,.55); color:#fff; font:12px/1.2 system-ui; overflow-wrap:anywhere; }
 .live-map-fit { position:absolute; top:8px; right:8px; z-index:var(--layer-controls); padding:8px 10px; border:1px solid #ddd; border-radius:10px; background:rgba(255,255,255,.85); color:#111; font:13px/1 system-ui; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.12); }
 .live-map-fit:hover { background:#fff; }
 .live-map-fit:disabled { opacity:.55; cursor:default; }
-.live-status-bar { right:8px; bottom:36px; display:grid; gap:4px; line-height:1.4; overflow-wrap:anywhere; background:rgba(0,0,0,.85); }
+.live-status-details { display:grid; gap:4px; margin-top:10px; color:var(--muted); font:12px/1.4 var(--font-body); overflow-wrap:anywhere; }
 .live-map-fit { left:8px; right:auto; }
-.live-status-bar span:empty { display:none; }
+.live-status-details span:empty { display:none; }
 .map-embed-status { margin-bottom:10px; color:var(--muted); font-size:12px; line-height:1.4; }
 .map-external-link { display:inline-block; margin-top:12px; color:var(--acid); font-size:13px; border-bottom:1px solid var(--line); }
 .map-external-link:focus-visible,.live-map-fit:focus-visible { outline:2px solid var(--acid); outline-offset:3px; }
